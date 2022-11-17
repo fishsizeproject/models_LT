@@ -1,11 +1,21 @@
 ---
-title: "fishsizeproj-models"
+title: "Models"
 ---
 
-This is a Quarto website.
+The models we have available:
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+::: {layout-ncol=3 layout="[[1,1]"}
 
-```{r}
-1 + 1
-```
+![[Temperature model ](https://www.google.com) Text here blah blah](www/elephant.jpg){fig-align="left" width=50% height="500"}
+
+![[Understanding Surplus production models](https://www.google.com)](www/elephant2.jpg){fig-align="left" width=50% height="500"}
+
+![[Temperature model](https://www.google.com)](www/elephant.jpg){fig-align="left" width=50% height="500"}
+
+![[Pikeperch Model](https://fishsize.shinyapps.io/pikeperch/)](www/pikeperch.png){fig-align="left" width=50% height="500"}
+
+![[Understanding Von Bertalanffy Growth models](https://www.google.com)](www/elephant.jpg){fig-align="left" width=50% height="500"}
+
+![[Understanding Surplus production models](https://www.google.com)](www/elephant2.jpg){fig-align="left" width=50% height="500"}
+
+:::
