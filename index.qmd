@@ -7,7 +7,10 @@ The models we have available:
 ::: {layout-ncol="3" layout="[[1,1]"}
 ![[Temperature model](https://www.google.com) Text here blah blah](www/elephant.jpg){fig-align="left" width="50%" height="500"}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fcf6f609ce8c4f94e70dd56f8baef749c52f2915
 ![[Temperature model](https://www.google.com)
 <br>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -27,6 +30,7 @@ Tehjhdfjhd fd fdhfjd hfdhf jdhf dfj dfhd fhdfhjdh fskj fdk skdfjskd fsd.
 <br>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 ](www/pikeperch.png){fig-align="left" width=50% height="500"}
+<<<<<<< HEAD
 
 ![[Understanding Surplus production models](https://www.google.com)](www/elephant2.jpg){fig-align="left" width="50%" height="500"}
 
@@ -41,4 +45,7 @@ Lipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi
 
 
 ![[Understanding Surplus production models](https://www.google.com)](www/elephant2.jpg){fig-align="left" width="50%" height="500"}
+=======
+
+>>>>>>> fcf6f609ce8c4f94e70dd56f8baef749c52f2915
 :::
