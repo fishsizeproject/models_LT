@@ -1,16 +1,44 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "1 + 1\n\n[1] 2"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Models",
+    "title": "About this website",
     "section": "",
-    "text": "Temperature model  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n\n\n\n\n\n\nUnderstanding Surplus production models  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n\n\n\n\n\n\nTemperature model  Tehjhdfjhd fd fdhfjd hfdhf jdhf dfj dfhd fhdfhjdh fskj fdk skdfjskd fsd.\n\n\n\n\n\n\n\n\n\nPikeperch Model  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n\n\n\n\n\n\nUnderstanding Von Bertalanffy Growth modelsLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n\n\n\n\n\n\nUnderstanding Surplus production models"
+    "text": "A link to our twitter"
+  },
+  {
+    "objectID": "models.html",
+    "href": "models.html",
+    "title": "Overview of models",
+    "section": "",
+    "text": "Temperature model  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n\n\n\n\n\n\nSurplus production models  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n\n\n\n\n\n\nVon Bertalanffy Growth models  Lipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n\n\n\n\n\n\n\n\nMQMF Model  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "objectID": "mqmf.html",
+    "href": "mqmf.html",
+    "title": "MQMF",
+    "section": "",
+    "text": "A link to the code\nA link for more info\nA link to the model"
+  },
+  {
+    "objectID": "surplus-production.html",
+    "href": "surplus-production.html",
+    "title": "Surplus production models",
+    "section": "",
+    "text": "Blah spm info"
+  },
+  {
+    "objectID": "temperature.html",
+    "href": "temperature.html",
+    "title": "Temperature model",
+    "section": "",
+    "text": "blah temp info."
+  },
+  {
+    "objectID": "von-bertalanffy.html",
+    "href": "von-bertalanffy.html",
+    "title": "von Bertalanffy Growth models",
+    "section": "",
+    "text": "blah von Bert info"
   }
 ]

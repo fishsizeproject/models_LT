@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs # required, as github pages will read from docs folder
 
 website:
   title: "Sustainable Inland Fisheries" # left of coloured top naviation bar
