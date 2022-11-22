@@ -1,30 +1,8 @@
 ---
-title: "Models"
+title: "About this website" 
 ---
 
-The models we have available:
-
-::: {layout-ncol="3" layout="[[1,1]"}
-
-![[Temperature model](https://www.google.com)
-<br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-](www/elephant.jpg){fig-align="left" width=50% height="500"}
-
-![[Understanding Surplus production models](https://www.google.com)
-<br> 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-](www/elephant2.jpg){fig-align="left" width=50% height="500"}
-
-![[Understanding Von Bertalanffy Growth models](https://www.google.com)
-<br>
-Lipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-](www/elephant.jpg){fig-align="left" width="50%" height="500"}
-
-![[Pikeperch Model](https://fishsize.shinyapps.io/pikeperch/)
-<br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-](www/pikeperch.png){fig-align="left" width=50% height="500"}
+Here is the information about the website and how to navigate it, acknowledgements etc.
 
 
-:::
+A link to [our twitter](https://www.twitter.com)

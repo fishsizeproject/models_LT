@@ -1,0 +1,6 @@
+---
+title: "von Bertalanffy Growth models"
+editor: source
+---
+
+blah von Bert info

@@ -2,11 +2,28 @@ project:
   type: website
 
 website:
-  title: "Models"
-  navbar:
-    left:
+  title: "Sustainable Inland Fisheries" # left of coloured top naviation bar
+  page-navigation: true
+  navbar: 
+    background: "pink" # colour of the top navigation bar (can use hex)
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
       - href: index.qmd
-        text: Our models
+        text: "Home" # how the page appears in the left navigation bar
+      - section: "Models"
+        contents:
+          - href: models.qmd 
+            text: "Overview of models" # how it appears in the left navigation 
+          - href: surplus-production.qmd 
+            text: "Surplus production"
+          - href: temperature.qmd 
+            text: "Temperature models"
+          - href: von-bertalanffy.qmd 
+            text: "Von Bertalanffy growth"
+          - href: mqmf.qmd 
+            text: "MQMF models"
 
 format:
   html:
