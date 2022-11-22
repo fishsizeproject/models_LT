@@ -1,8 +1,10 @@
 ---
 title: "About this website" 
 ---
+<!-- NOTE: you must edit this .qmd file  for it to refresh on github pages -->
 
 Here is the information about the website and how to navigate it, acknowledgements etc.
 
 
 A link to [our twitter](https://www.twitter.com)
+
