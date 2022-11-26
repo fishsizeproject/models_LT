@@ -4,40 +4,65 @@ project:
 
 website:
   title: "Sustainable Inland Fisheries" # left of coloured top naviation bar
+#  site-url: "https://sif.lt" ##ASTA: can we make sure that when a user clicks the top bar, we go back to the project webiste sif.lt?
+  favicon: images/sif.png  #ASTA: it would be good to have this image on the top bar, in the left corner, but not sure how to add it
   page-navigation: true
   navbar: 
-    background: "pink" # colour of the top navigation bar (can use hex)
+    background: "white" # colour of the top navigation bar (can use hex)
   sidebar:
     style: "docked"
-    search: true
+    search: false  #ASTA: tried to remove the search bar option, as it is not really doing anything, but it's still there
     contents:
 #      - href: index.qmd
 #        text: "Home" # how the page appears in the left navigation bar#
         - href: models.qmd
           text: "Models home" # how the page appears in the left navigation bar
-       - section: "CPUE standardisation"
-         contents:
-            - href: GLM_standardisation.qmd 
-              text: "GLM based standardisation" # how it appears in the left navigation 
-            - href: Zero_inflated_model.qmd 
-              text: "Zero inflated model for catch" # how it appears in the left navigation 
-            - href: Bayesian_inla.qmd 
-              text: "Bayesian model" # how it appears in the left navigation 
-            
-            
-            
-            
-          - href: models.qmd 
-            text: "Overview of models" # how it appears in the left navigation 
-          - href: surplus-production.qmd 
-            text: "Surplus production"
-          - href: temperature.qmd 
-            text: "Temperature models"
-          - href: von-bertalanffy.qmd 
-            text: "Von Bertalanffy growth"
-          - href: mqmf.qmd 
-            text: "MQMF models"
-
+        - section: "CPUE standardisation"
+          href: CPUEstandard.qmd
+          contents:
+            - text: "1. GLM based standardisation" # how it appears in the left navigation 
+              href: GLM_standardisation.qmd 
+            - text: "2. Zero inflated model for catch" # how it appears in the left navigation 
+              href: Zero_inflated_model.qmd 
+            - text: "3. Bayesian model" # how it appears in the left navigation 
+              href: Bayesian_inla.qmd 
+        - section: "Surplus production (SP) models"
+          href: SP_introduction.qmd
+          contents:
+            - text: "4. Understand SP models" # how it appears in the left navigation 
+              href: surplus-production.qmd 
+            - text: "5. SP models with JABBA" # how it appears in the left navigation 
+              href: jabba_models.qmd 
+        - section: "Fish growth models"
+          href: fish_growth.qmd
+          contents:
+            - text: "6. Von-Bertallanfy growth" # how it appears in the left navigation 
+              href: von-bertalanffy.qmd 
+            - text: "7. Temperatue impact on growth" # how it appears in the left navigation 
+              href: temperature_growth.qmd 
+            - text: "8. Detecting growth changes" # how it appears in the left navigation 
+              href: growth_change.qmd 
+            - text: "9. Detecting size changes" # how it appears in the left navigation 
+              href: size_change.qmd 
+        - section: "Machine learning (ML) models"
+          href: machine_learning.qmd
+          contents:
+            - text: "10. ML for fish identification" # how it appears in the left navigation 
+              href: ML_fish_species.qmd 
+            - text: "11. ML for fish size estimation" # how it appears in the left navigation 
+              href: ML_fish_size.qmd 
+        - section: "Satellite data analysis"
+          href: satelite_data.qmd
+          contents:
+            - text: "12. Getting temperature data" # how it appears in the left navigation 
+              href: satelite_temp.qmd 
+            - text: "13. Getting chlA data" # how it appears in the left navigation 
+              href: satelite_chla.qmd 
+        - section: "Size based ecosystem models"
+          href: size_based.qmd
+          contents:
+            - text: "14. Curonian lagoon model" # how it appears in the left navigation 
+              href: curonian_mizer.qmd 
 format:
   html:
     theme: cosmo
