@@ -11,10 +11,22 @@ website:
     style: "docked"
     search: true
     contents:
-      - href: index.qmd
-        text: "Home" # how the page appears in the left navigation bar
-      - section: "Models"
-        contents:
+#      - href: index.qmd
+#        text: "Home" # how the page appears in the left navigation bar#
+        - href: models.qmd
+          text: "Models home" # how the page appears in the left navigation bar
+       - section: "CPUE standardisation"
+         contents:
+            - href: GLM_standardisation.qmd 
+              text: "GLM based standardisation" # how it appears in the left navigation 
+            - href: Zero_inflated_model.qmd 
+              text: "Zero inflated model for catch" # how it appears in the left navigation 
+            - href: Bayesian_inla.qmd 
+              text: "Bayesian model" # how it appears in the left navigation 
+            
+            
+            
+            
           - href: models.qmd 
             text: "Overview of models" # how it appears in the left navigation 
           - href: surplus-production.qmd 
