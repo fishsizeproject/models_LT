@@ -1,0 +1,11 @@
+---
+title: "TO DO list"
+editor: source
+---
+
+1. Comments on the _quarto.yml page. 
+
+2. For the models.qmd we need to set the images to identical size. Not sure how to do it. 
+
+3. Asta: get chlorophyl A image
+

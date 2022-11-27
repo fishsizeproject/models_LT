@@ -1,16 +1,72 @@
 ---
 title: "Overview of models"
+toc: true
 ---
 
-We have developed and applied a range of statistical and mechanistic models to be used in fisheries research and management. This page provides details and code for all the models. The models are available for free non-commercial use, but please reference the original source (publications or this website). 
+We have developed and applied a range of statistical and mechanistic models, which we used in our studies and are happy to share with others. We hope these models will be useful for fisheries research and management. The models are available for free non-commercial use, but please reference the original source (publications or this website).
+
+## Models for catch per unit effort (CPUE) standardisation
+
+Scientific monitoring and artisanal, commercial or recreational fish catch data is often used to assess population status and trends, but such data are usually complex and require careful standardisation. There are several approaches that can be used for CPUE standardisation and we present three potential models of increasing complexity.
 
 ::: {layout-ncol="3" layout="[[1,1]"}
+![[1. Generalized linear model (GLM) based standardisation](GLM_standardisation.qmd) <br> This model could be used for scientific monitoring or commercial catch data and applies GLM with Tweedie distribution to extract annual CPUE residuals. Here we apply the model for five common Lithuanian freshwater species](images/course_image.png){fig-align="left" width="50%" height="500"}
 
-![[Temperature model](temperature.qmd) <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.](images/elephant.jpg){fig-align="left" width="50%" height="500"}
+![[2. Zero inflated models for CPUE standardisation](Zero_inflated_model.qmd) <br> If catch data has a lot of zeros, one can also GLMs with adjustments for zero inflation.](images/zero_inflated.png){fig-align="left" width="50%" height="500"}
 
-![[Surplus production models](surplus-production.qmd) <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.](images/elephant2.jpg){fig-align="left" width="50%" height="500"}
-
-![[Von Bertalanffy Growth models](von-bertalanffy.qmd) <br> Lipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.](images/elephant.jpg){fig-align="left" width="50%" height="500"}
-
-![[MQMF Model](mqmf.qmd) <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.](images/pikeperch.png){fig-align="left" width="50%" height="500"}
+![[3. Bayesian model with INLA](Bayesian_inla.qmd) <br> This is a Bayesian model that account for autocorrelation in catches across time and space. It uses approximate Bayesian inference implemented in the [INLA package](https://www.r-inla.org/) .](images/inlaCPUE.png){fig-align="left" width="50%" height="500"}
 :::
+
+## Surplus production models for stock assessment
+
+Surplus production (SP) models are commonly used to assess data-poor fish stocks and are based on time series of catches and population abundance index (such as standardised CPUE time series, from the models above). These models assume that fish population abundance depends on its regeneration rate, carrying capacity and catches. SP models have been successfully applied to many stocks and, despite their simple assumptions, often perform surprisingly well, assuming the population abundance and catch time series are reliable.
+
+::: {layout-ncol="2" layout="[[1,1]"}
+![[4. Understand SP models](surplus-production.qmd) <br> This little model lets you explore key assumptions behind surplus production population models. See how sustainable yield will depend on population regeneration and fishing mortality rate. See how catching more fish sometimes can give you less long term yield.](images/roach.png){fig-align="left" width="50%" height="500"}
+
+![[5. Apply SP models with JABBA](jabba_models.qmd) <br> JABBA is an advanced and user friendly surplus production modelling framework. Here you can learn about its application and explore five models adapted for five Lithuanian fish species, from Curonian lagoon and Kaunas Water reservoir.](images/pikeperch.png){fig-align="left" width="50%" height="500"}
+:::
+
+## Fish growth models
+
+Fish growth and therefore body sizes are highly variable, as it depends on temperature, food availability and many other processes. Understanding and modelling how and why growth can change is therefore an important part of fisheries research.
+
+::: {layout-ncol="2" layout="[[1,1]"}
+![[6. Von-Bertallanfy growth](von-bertalanffy.qmd) <br> With this model you can explore Von-Bertallanfy function parameters and asses how well it fits your data. You can also visualise how variation in growth will make size classes indistinguishable as fish get older.](images/perch.png){fig-align="left" width="50%" height="500"}
+
+![[7. Temperatue impacts on growth](temperature_growth.qmd) <br> Mechanistic life-history optimisation based model to assess how temperature driven changes in intake, metabolism and reproduction can affect growth. You can run this model in Excel or R.](images/temperatureModel.jpg){fig-align="left" width="50%" height="500"}
+
+![[8. Detecting growth changes](growth_change.qmd) <br> Bayesian model to estimate changes in growth parameters from a time series of age-length data. The model is applied to fish growth data from a nuclear power plant heated lake in Lithuania.](images/detect_growth_S.png){fig-align="left" width="50%" height="500"}
+
+![[9. Detecting size changes](detecting_size.qmd) <br> Bayesian model to estimate long term changes in average fish size using long term monitoring datasets from multiple locations.](images/size_change.png){fig-align="left" width="50%" height="500"}
+:::
+
+## Machine learning models
+
+Machine learning (ML) enables rapid analyses of large image and datasets and is an important step to facilitate citizen science driven data collection techniques. During our project we have developed two machine learning models for fish species and size identification.
+
+::: {layout-ncol="2" layout="[[1,1]"}
+![[10. ML for species identification](ML_fish_species.qmd) <br> Here you can learn about our pipeline for machine learning based image classification tools. The pipeline has been applied to fish species identification, but could be used for any other images classes](images/fish_detected.png){fig-align="left" width="50%" height="500"}
+
+![[11. ML for fish size estimation](ML_fish_size.qmd) <br> Information on fish sizes is very important for population management, but many citizen science or social media platforms do not collect it. We are also developing a model to identify fish sizes based on photos of anglers holding fish.](images/MLsize.png){fig-align="left" width="50%" height="500"}
+:::
+
+## Satellite data analysis
+
+Remote sensing and satellite data is now being collected on high temporal and spatial resolution. However, it is often challenging to access and process these data. We have developed some models and tools to aid with satellite based water surface temperature and chlorophyll A data acquisition and analysis.
+
+::: {layout-ncol="2" layout="[[1,1]"}
+![[12. Satellite based temperature data](satelite_temp.qmd) <br> This is a use friendly model and tool to extract and analyse satellite based water surface temperature observations from Google Earth engine. You will need a Google account and coordinates of your locations.](images/satelliteTemp.png){fig-align="left" width="50%" height="500"}
+
+![[13. Satellite based chlorophyll A data](satelite_chla.qmd) <br> This tool will help you extract chlorophyll A data from satellite observations and apply a model to filter out unreliable data and estimate lake class](images/satelliteTemp.png){fig-align="left" width="50%" height="500"}
+:::
+
+## Size based ecosystem models
+
+Size based community and ecosystem models represent a powerful tool to explore potential outcomes of different fisheries management strategies, species interactions, climate change and a lot more. In this project we are developing a size based model for the Curonian lagoon ecosystem.
+
+::: {layout-ncol="2" layout="[[1,1]"}
+![[14. Sized based models for Curonian lagoon and Baltic Sea](curonian_mizer.qmd) <br> Learn about the potential climate change impacts in the Baltic Sea, explore a basic Curonian lagoon model and understand key principles of size based modelling, as implemented in a R package *mizer*.](images/mizer.png){fig-align="left" width="50%" height="500"}
+:::
+
+<!-- this is how we put comments and notes -->

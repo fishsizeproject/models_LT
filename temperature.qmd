@@ -1,6 +1,0 @@
----
-title: "Temperature model"
-editor: source
----
-
-blah temp info.
