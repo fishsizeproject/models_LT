@@ -10,6 +10,9 @@ Here we present a **scalable user-friendly artificial intelligence (AI) framewor
 
 In this [**publication**](https://www.mdpi.com/2071-1050/14/21/14324) in the journal *Sustainability* you will find a detailed description of the framework, a pilot case-study where we demonstrate potential use for recreational fisheries research, a summary of the knowledge gained from the case study application and an outline of the main challenges and potential future development. You can also find all the scripts used in the framework in our [Github page](https://github.com/fishsizeproject/ML-framework-for-image-processing).
 
+![ML framework](images/framework.png){width="50%" height="50%"}
+Open-source modular framework for large scale image storage, handling, annotation and automatic classification
+
 
 ## Model code
 
