@@ -3,6 +3,8 @@ title: "TO DO list"
 editor: source
 ---
 
+0. Why is our webiste https://fishsizeproject.github.io/models/ not updated once I push code updates? I can see them locally, but not online
+
 1. Comments on the _quarto.yml page. 
 
 2. For the models.qmd we need to set the images to identical size. Not sure how to do it. 
@@ -10,7 +12,7 @@ editor: source
 3. In the Zero_inflated_model.qmd for some reason the Rmd script cannot be found, even though it is there in scripts/ folder
 
 
-
+##
 
 3. Asta: get chlorophyl A image
 
