@@ -1,5 +1,6 @@
 ---
 title: "Standardising catch per unit effort (CPUE) using generalised linear models"
+author: Egle Jakubavičiūtė and Asta Audzijonytė
 editor: source
 ---
 
