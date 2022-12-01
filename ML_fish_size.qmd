@@ -1,12 +1,48 @@
 ---
-title: "MQMF"
+title: "Estimating fish size classes using image classification and machine learning models"
+author: Catarina Silva and Asta Audzijonytė
 editor: source
 ---
 
-About the model
+## Introduction
 
-A link to the [code](https://www.github.com)
+Here we present a **simple approach to develop models for estimating fish size classes from images**. We have prepared a scripts for data pre-processing and machine learning model development, which you can find on our [Online course](https://fishsizeproject.github.io/Course-MLforImageProcessing/G-practice-4.html) webpage. 
 
-A link for [more info](https://www.google.com)
+In this [**publication**](link here) you will find a detailed description of the method and a pilot case-study where we demonstrate potential use for estimating fish size classes from images without a speficied reference object. You can also find all the scripts used in the framework in our [Github page](link here).
 
-A link to the [model](https://fishsize.shinyapps.io/pikeperch/)
+
+## Model code
+
+To use our models it is very important that fish size classes in your dataset are identified correctly, otherwise your model will not be very useful. You can upload images (in JPEG or PNG format) to your Google drive by size class (i.e. fish images of each size class per folder), following this directory structure:
+
+
+<pre>
+<b>dataset</b>
+|__ <b>class5</b>
+    |______ 100080576_f52e8ee070_n.PNG
+    |______ 14167534527_781ceb1b7a_n.PNG
+    |______ ...
+|__ <b>class10</b>
+    |______ 10043234166_e6dd915111_n.PNG
+    |______ 1426682852_e62169221f_m.PNG
+    |______ ...
+|__ <b>class15</b>
+    |______ 102501987_3cdb8e5394_n.PNG
+    |______ 14982802401_a3dfb22afb.PNG
+    |______ ...
+|__ ...
+</pre>
+
+
+
+To apply our model you can use this code:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1YgIrWWiaex8ObtAbAJOAXlRRGUbElkYj?usp=sharing)
+
+
+## Application of the model
+
+
+You can also watch [**this talk**](https://youtu.be/iujl9R3lEaQ?t=5293) for the "Online seminar: Recreational angling effort and engagement in the digital age" to learn more about this model.
+
+

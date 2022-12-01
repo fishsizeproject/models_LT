@@ -1,12 +1,48 @@
 ---
-title: "MQMF"
+title: "Machine learning based image collection, annotation and classification of fish species"
+author: Catarina Silva and Asta Audzijonytė
 editor: source
 ---
 
-About the model
+## Introduction
 
-A link to the [code](https://www.github.com)
+Here we present a **scalable user-friendly artificial intelligence (AI) framework to develop fish species identification models**. We have prepared a course and scripts for data pre-processing, image processing and machine learning model development, which you can find on our [Online course](https://fishsizeproject.github.io/Course-MLforImageProcessing/) webpage. 
 
-A link for [more info](https://www.google.com)
+In this [**publication**](https://www.mdpi.com/2071-1050/14/21/14324) in the journal *Sustainability* you will find a detailed description of the framework, a pilot case-study where we demonstrate potential use for recreational fisheries research, a summary of the knowledge gained from the case study application and an outline of the main challenges and potential future development. You can also find all the scripts used in the framework in our [Github page](https://github.com/fishsizeproject/ML-framework-for-image-processing).
 
-A link to the [model](https://fishsize.shinyapps.io/pikeperch/)
+
+## Model code
+
+To use our models it is very important that fish species (or ecotypes or any other classes you want your model to identify) in your dataset are identified correctly, otherwise your model will not be very useful (you might have heard the expression “garbage in - garbage out”). You can upload images (in JPEG or PNG format) to your Google drive by species (i.e. one species per folder - please make sure these are correctly identified), following this directory structure:
+
+
+<pre>
+<b>dataset</b>
+|__ <b>perch</b>
+    |______ 100080576_f52e8ee070_n.PNG
+    |______ 14167534527_781ceb1b7a_n.PNG
+    |______ ...
+|__ <b>striped_bass</b>
+    |______ 10043234166_e6dd915111_n.PNG
+    |______ 1426682852_e62169221f_m.PNG
+    |______ ...
+|__ <b>trout</b>
+    |______ 102501987_3cdb8e5394_n.PNG
+    |______ 14982802401_a3dfb22afb.PNG
+    |______ ...
+|__ ...
+</pre>
+
+
+
+To apply our model you can use this code:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1YgIrWWiaex8ObtAbAJOAXlRRGUbElkYj?usp=sharing)
+
+
+## Application of the model
+
+
+You can also watch [**this talk**](https://youtu.be/mHw8-tUgCkI?t=1886) for the "Online workshop: Machine learning, fishing and citizen science" and [**this talk**](https://youtu.be/iujl9R3lEaQ?t=5293) for the "Online seminar: Recreational angling effort and engagement in the digital age" to learn more about this model.
+
+
