@@ -17,7 +17,7 @@ Scientific monitoring and artisanal, commercial or recreational fish catch data 
 ![[3. Bayesian model with INLA](Bayesian_inla.qmd) <br> This is a Bayesian model that account for autocorrelation in catches across time and space. It uses approximate Bayesian inference implemented in the [INLA package](https://www.r-inla.org/) .](images/inlaCPUE.png){fig-align="left" width="50%" height="500"}
 :::
 
-## Surplus production models for stock assessments
+## Surplus production models for stock assessment_s
 
 Surplus production (SP) models are commonly used to assess data-poor fish stocks and are based on time series of catches and population abundance index (such as standardised CPUE time series, from the models above). These models assume that fish population abundance depends on its regeneration rate, carrying capacity and catches. SP models have been successfully applied to many stocks and, despite their simple assumptions, often perform surprisingly well, assuming the population abundance and catch time series are reliable.
 
