@@ -6,28 +6,28 @@ editor: source
 
 ## Introduction
 
-Before proceeding with CPUE standardisation, first make sure you carefully **assess and explore your data**. We have prepared to courses and scripts for data exploration, which you can find on our [CPUE standardisation course](https://fishsizeproject.github.io/CPUEcourse/) webpage.
+Before proceeding with CPUE standardisation, first make sure you carefully **assess and explore your data**. We have prepared the courses and scripts for data exploration, which you can find on our [CPUE standardisation course](https://fishsizeproject.github.io/CPUEcourse/) webpage.
 
-One commonly used approach for CPUE data standardisation applies generalizes linear models (GLM). Here we model all variables that could impacts our catches and extract annual devaitions and their uncertainty. From this we can plot a standardized time series of population abundance.
+One commonly used approach for CPUE data standardisation applies generalized linear models (GLM). Here we model all variables that could impact our catches and extract annual deviations and their uncertainty. From this we can plot a standardized time series of population abundance.
 
 In this set of [**slides**](resources/CPUEstandartisation_GLM.pdf) you will find main points about GLM based CPUE standardisation.
 
-For examples on how this method has been applied to other stocks, see references **here** and **here** EGLE - add references
+For examples on how this method has been applied to other stocks, see references [here](resources/Maunder2004.pdf) and [here](resources/Forrestal_2018.pdf)
 
 ## Model code
 
-We have developed GLM based models for CPUE standardisation of five fish species in Curonian lagoon and Kaunas Water reservoir (Lithuania). To use our models you first need to convert your dataset into a format where each row corresponds to a unique entry indicating all catches per gear, mesh size, length, season, fishing trip or other variables you want to include in the model. You can use [**this code**](scripts/dataCoversion.Rmd) to covert your data table into a suitable format. 
+We have developed GLM based models for CPUE standardisation of five fish species in the Curonian Lagoon and Kaunas Water reservoir (Lithuania). To use our models you first need to convert your dataset into a format where each row corresponds to a unique entry indicating all catches per gear, mesh size, length, season, fishing trip or other variables you want to include in the model. You can use [**this code**](scripts/dataConversion.Rmd) to covert your data table into a suitable format.
 
-To apply our GLM based standardisation model you can use [**this code**](scripts/GLM_cpue.Rmd) where you will apply generalized linear models with Tweedie distribution and assess important predictor variables. Once you extract annual resisuals and associated uncertainty you can plot the time series, as in the image below 
+To apply our GLM based standardisation model you can use [**this code**](scripts/GLM_cpue.Rmd) where you will apply generalized linear models with Tweedie distribution and assess important predictor variables. Once you extract annual residuals and associated uncertainty you can plot the time series, as in the image below.
 
-![](images/time_series.jpg){width="50%" height="500"} EGLE: need to add an example output and Rmd scripts 
+![](images/example_stand_cpue1.jpeg){width="50%" height="50%"} EGLE: need to add Rmd scripts
 
-## Application of the model 
+## Application of the model
 
-To learn more about the application of this CPUE standardisation model to Kaunas Water Reservoir fish populations, you can read our [**publication**](https://www.mdpi.com/2410-3888/7/5/232) in journal *Fishes*. 
+To learn more about the application of this CPUE standardisation model to Kaunas Water Reservoir fish populations, you can read our [**publication**](https://www.mdpi.com/2410-3888/7/5/232) in journal *Fishes*.
 
-You can also watch [**this conference talk**](youtube link) to learn more about this analysis. 
+You can also watch [**this conference talk**](youtube%20link) to learn more about this analysis.
 
-Once you conduct your CPUE standardisation, you can use the standardised values in [**surplus production models**](jabba_models.qmd), as explained on this website. 
+Once you conduct your CPUE standardisation, you can use the standardised values in [**surplus production models**](jabba_models.qmd), as explained on this website.
 
 ![](images/cpue_glm1.jpg){width="50%" height="350"}
