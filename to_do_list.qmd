@@ -7,5 +7,10 @@ editor: source
 
 2. For the models.qmd we need to set the images to identical size. Not sure how to do it. 
 
+3. In the Zero_inflated_model.qmd for some reason the Rmd script cannot be found, even though it is there in scripts/ folder
+
+
+
+
 3. Asta: get chlorophyl A image
 
