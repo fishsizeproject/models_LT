@@ -12,6 +12,15 @@ If you have questions and suggestions please contact us at *lydekaipaliepus@gamt
 
 [**Start exploring models**](models.qmd)
 
-`r icon::fa("arrow-turn-down-left")` Go [**back**](https://en.sif.lt) to the project website.
+Go [**back**](https://en.sif.lt) to the project website.
 
-![](images/logos_EN.png){width="734"}
+
+::: {.grid}
+
+<br>
+
+<!-- Logos -->
+::: {.g-col-12}
+![](images/logos_EN.png){fig-align="center" width="75%"} 
+:::
+:::
