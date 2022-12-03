@@ -6,6 +6,10 @@ title: "Models for sustainable inland fisheries"
 
 This is a webpage of models developed during the project "*Advanced models, citizen science and big data for sustainable food production and ecological services of inland aquatic ecosystems*". The project has received funding from European Regional Development Fund (project No 01.2.2-LMT-K-718-02-0006) under grant agreement with the Research Council of Lithuania (LMTLT).
 
+This page and models presented here have been created by Asta Audzijonyte, Carl Smith, Catarina Silva, Egle Jakubavičiūtė, Dalia Grendaitė, Max Lindmark, Freddie Heather, Steve Midway and Gustav Delius.  
+
+If you have questions and suggestions please contact us at *lydekaipaliepus@gamtc.lt*
+
 [**Start exploring models**](models.qmd)
 
 Go [**back**](https://en.sif.lt) to the project website.
