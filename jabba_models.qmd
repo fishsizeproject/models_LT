@@ -3,4 +3,29 @@ title: "Surplus production models"
 editor: source
 ---
 
-Blah spm info
+## Introduction 
+
+JABBA is a Bayesian State-Space Surplus Production Model framework developed by [Winker et al. 2018](resources/Winker2018.pdf).
+
+It uses catch and relative abundance time series and requires prior information on a) the resilience parameter r (intrinsic rate of population increase), b) carrying capacity K and c) the relative initial biomass at the beginning of the time series. 
+
+You can find all information in the developers' [**vignette**]
+
+![](images/BBmsy_Roach.png){width="50%" height="50%"} 
+
+## Model code 
+
+[**Here**](scripts/jabba.Rmd) is an example code of how we used JABBA for modeling five species in the Curonian Lagoon and Kaunas water reservoir (Lithuania). 
+
+
+![](images/Kobe_Roach.png){width="40%" height="40%"} 
+![](images/Posteriors_Roach.png){width="50%" height="50%"} EGLE: need to add Rmd scripts
+
+
+## Application of the model
+
+To learn more about surplus production modeling to Curonian Lagoon and Kaunas Water Reservoir fish stocks and results that could be of interest to managers, you can read [this](resources/KM_jabba_rez.pdf) and [this](resources/Kaunas_jabba_rez.pdf) summary or watch [**this conference talk**](youtube%20link).
+
+
+![](images/Pikeperchprojection.tiff){width="50%" height="50%"}
+

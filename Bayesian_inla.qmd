@@ -1,12 +1,29 @@
 ---
-title: "MQMF"
+title: "Bayesian CPUE standardisation using INLA"
+author: Carl Smith
 editor: source
 ---
 
-About the model
+## Introduction
 
-A link to the [code](https://www.github.com)
+Fisheries catches through time are usually correlated. Catch in one year is not independent of the catch in the previous year. In CPUE standardisation models we should ideally account for this autocorrelation. The [GLM based models](GLM_standardisation.qmd) don't really do that, despite being a popular approach. Therefore here we will develop and apply a different model which accounts for spatial and temporal correlation in our catches. 
 
-A link for [more info](https://www.google.com)
+In this model we will estimate model parameters using approximate Bayesian inference as implemented in the [INLA package](https://www.r-inla.org/). The approximate Bayesian inference runs much faster than full inference using MCMC approach and with INLA package it can be applied to a wide range of distributions. For a basic introduction into the Bayesian approach and why it is useful, check out [**these slides**](resources/BayesianModels.pdf). 
 
-A link to the [model](https://fishsize.shinyapps.io/pikeperch/)
+The slides and the model, together with a detailed description of all the modelling steps have been presented in the last lecture of the [CPUE standardisation course](https://fishsizeproject.github.io/CPUEcourse/5-zander.html), so we recommend you watch the lecture before applying the model. Also, before proceeding with CPUE standardisation,  make sure you carefully *assess and explore your data*. We have prepared two courses and different scripts for data exploration, which you can find on our [CPUE standardisation course](https://fishsizeproject.github.io/CPUEcourse/) webpage.
+
+The model is coded in [R](https://www.r-project.org/) language, so you will need R and [RStudio](https://www.rstudio.com/products/rstudio/) to run it. If you need a brief introduction into R, check [this introductory page](https://course.mizer.sizespectrum.org/prepare/install-tools.html) from an online course on size based modelling. 
+
+## Model code
+
+The main model code is available in this [**R markdown script**](scripts/BayesianINLA.zip) and is demonstrated using [**this dataset**](scripts/pikeperch.csv) from 22 years of commercial pikeperch (*Sander lucioperca*) catches in the Baltic Sea. You can download the model and modify the script according to your needs. Before you run the model you will need to install all the R packages, as is explained in this [**R script**](scripts/model_packages.R).
+
+To look at the model code and outputs without having to run the code, you can click [**here**](resources/BayesianINLA.html). After applying the model you should be able to plot predicted CPUE and its uncertainty through time, like in the plot below. 
+
+![](images/inlaCPUE.PNG){width="60%" height="400"}
+
+## Application of the model 
+
+We are currently working on applying this model to CPUE standardisation of the [long term data set](https://www.sciencedirect.com/science/article/pii/S2352340922002013) from the Curonian Lagoon and Kaunas Water Reservoir in Lithuania. Stay tuned for more outputs. If you are interested to learn more, please contact us as *lydekaipaliepus@gamtc.lt*
+
+![](images/EffortCatchINLA.PNG){width="60%" height="400"}

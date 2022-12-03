@@ -1,12 +1,26 @@
 ---
-title: "MQMF"
+title: "Zero inflated model for CPUE standardisation"
+author: Carl Smith
 editor: source
 ---
 
-About the model
+## Introduction
 
-A link to the [code](https://www.github.com)
+Most fisheries datasets (scientific, commercial, recreational) have a lot of zero catches. These are fishing trips were no fish was caught. These zero catches are important but we need to fit appropriate models to accommodate them. Here we are introducing a model for zero inflated data. This model is coded in [R](https://www.r-project.org/) language, so you will need R and [RStudio](https://www.rstudio.com/products/rstudio/) to run it. If you need a brief introduction into R, check [this introductory page](https://course.mizer.sizespectrum.org/prepare/install-tools.html) from an online course on size based modelling. 
 
-A link for [more info](https://www.google.com)
+For a basic introduction into the model and data, check out [**these slides**](resources/ZeroInflatedModels.pdf). However, if you want to use the model we strongly recommend that you watch at least [**part 4**](https://fishsizeproject.github.io/CPUEcourse/4-hilsha.html) of our CPUE standardisation course, where the model and approach were presented in more detail.  
 
-A link to the [model](https://fishsize.shinyapps.io/pikeperch/)
+Before proceeding with CPUE standardisation, first make sure you carefully *assess and explore your data*. We have prepared two courses and different scripts for data exploration, which you can find on our [CPUE standardisation course](https://fishsizeproject.github.io/CPUEcourse/) webpage.
+
+## Model code
+
+The main model code is available in this [**R markdown script**](scripts/Hilsha.zip) and is demonstrated using [**this dataset**](scripts/hilsa.csv). You can download the model and modify the script according to your needs. To look at the model code and outputs without having to run the code, you can click [**here**](resources/ZeroInflated.html). After applying the model you should be able to plot predicted catches as a function of fishing time (or other estimate of effort) and month or season, like in the plot below. 
+
+![](images/zero_infl1.jpg){width="50%" height="400"} 
+
+## Application of the model 
+
+To better understand this model and its applications, we strongly recommend that you go through our [**CPUE standardisation course**](https://fishsizeproject.github.io/CPUEcourse/) material, where we discuss different models and their strengths in greater detail. The course also explains how to simulate new datasets using estimated model parameters to assess the probability of obtaining as many zero entries as you have in your dataset (example output of these simulations is shown in the plot below).  
+
+
+![](images/simulateZeros.jpg){width="50%" height="100"}

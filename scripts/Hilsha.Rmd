@@ -1,0 +1,330 @@
+---
+title: "R code for hilsa (Tenualosa ilisha) CPUE data: zero inflated models"
+author: "Carl Smith"
+date: '2022-11-23'
+output: 
+  html_document: 
+    toc: yes
+    theme: cerulean
+---
+
+
+```{r, eval = T, echo = F, message = F, warning = F}
+
+# Start by loading packages and data
+library(anytime)
+library(arm)
+library(bit)
+#library(brinla)
+library(car)
+library(cellranger)
+library(DHARMa)
+library(gargle)
+library(GGally)
+library(ggeffects)
+library(ggplot2)
+library(ggpubr)
+library(glmmTMB)
+library(grid)
+library(gridExtra)
+#library(INLA)
+#library(inlatools)
+library(lattice)
+library(lawstat)
+library(lme4)
+library(mgcv)
+library(nlme)
+library(outliers)
+library(performance)
+library(plotly)
+library(plyr)
+library(tidyverse)
+library(scales)
+library(sjlabelled)
+library(sjmisc)
+library(sjPlot)
+library(timechange)
+library(tzdb)
+library(vroom)
+
+######################################
+
+#Import hils data
+hils <- read_csv(file = "hilsa.csv")
+
+# Define preferred figure format
+My_theme <- theme(axis.text.y = element_blank(),
+                  axis.ticks.y = element_blank(),
+                  axis.ticks.x=element_blank(),
+                  panel.background = element_blank(),
+                  panel.border = element_rect(fill = NA, size = 1),
+                  strip.background = element_rect(fill = "white", 
+                                                  color = "white", size = 1),
+                  text = element_text(size = 14),
+                  panel.grid.major = element_line(colour = "white", size = 0.1),
+                  panel.grid.minor = element_line(colour = "white", size = 0.1))
+
+# A function for dotplots
+multi_dotplot <- function(filename, Xvar, Yvar){
+  filename %>%
+    ggplot(aes(x = {{Xvar}})) +
+    geom_point(aes(y = {{Yvar}})) +
+    theme_bw() +
+    coord_flip() +
+    labs(x = "Order of Data")}
+
+```
+
+Note that we are using a data file that has already been explored and modified to remove outliers. Read the introduction to the model to see where to find the original data file and explanation on data exploration 
+
+#### Data exploration: outliers 
+
+```{r, eval = T, echo = F, message = F, warning = F}
+
+#Order data
+hils <- hils %>%
+  mutate(order = seq(1:nrow(hils)))
+
+#Select continuous variables to plot
+p1 <- multi_dotplot(hils, order, Nlength)
+p2 <- multi_dotplot(hils, order, TripDays)
+p3 <- multi_dotplot(hils, order, Catch)
+
+#Plot as a grid
+grid.arrange(p1, p2, p3, nrow = 1)
+
+```
+
+#### Normality and homogeneity of variance 
+
+The plots below show that we have a lot of zero observations in our data. The variance is not homogenous, since variance in catch varies across number of trip days or net lengths used. 
+
+```{r, eval = T, echo = F, message = F, warning = F}
+
+# Patterns in the variance? (Evidence for lack of homogeneity)
+ggplot(hils, aes(x = TripDays, y = (Catch))) +
+  ylim(-1.5,1250) + xlim(0,12) +
+  geom_jitter(shape = 16, size = 2.5, alpha = 0.3, height = 0.25, width = 0.5) +
+  theme(panel.background = element_blank()) +
+  theme(panel.border = element_rect(fill = NA, size = 1)) +
+  theme(strip.background = element_rect(fill = "white", 
+                   color = "white", size = 1)) +
+  theme(text = element_text(size=13)) +
+  xlab("Trip days") + ylab("Hilsa catch (kg)")
+
+ggplot(hils, aes(x = Nlength, y = (Catch))) +
+  ylim(-1.5,1250) + xlim(0,510) +
+  geom_jitter(shape = 16, size = 2.5, alpha = 0.3, height = 1.5, width = 5) +
+  theme(panel.background = element_blank()) +
+  theme(panel.border = element_rect(fill = NA, size = 1)) +
+  theme(strip.background = element_rect(fill = "white", 
+                                        color = "white", size = 1)) +
+  theme(text = element_text(size=13)) +
+  xlab("Net length (m)") + ylab("Hilsa catch (kg)")
+
+```
+
+### How many zeros in the data?
+
+```{r, eval = T, echo = T, message = F, warning = F}
+
+round(sum(hils$Catch == 0) * 100 / nrow(hils),0)
+
+```
+
+Our data shows 22% of zeroes in the data. 
+
+# MODEL 
+
+Our aim is to standardise hilsa catch (kg) as a function of effort (trip days and net length) among months and regions
+To demonstrate the process of model development we start with a Poisson distribution and include all covariates
+
+```{r, eval = T, echo = T, message = T, warning = F}
+
+
+M1 <- glmmTMB(Catch ~ Area + Nlength + TripDays + YrMonth,
+                      family = "poisson"(link = "log"),
+                      data = hils)
+
+check_overdispersion(M1)
+
+```
+
+The model is overdispersed (p < 0.001). Clearly this is related to the number of zeroes in our data. 
+
+Now we try a negative binomial distribution 
+
+```{r, eval = T, echo = T, message = T, warning = F}
+
+M2 <- glmmTMB(Catch ~ Area + YrMonth + Nlength + TripDays,
+                      family = "nbinom1"(link = "log"),
+                      ziformula=~ 0,
+                      data = hils)
+check_overdispersion(M2)
+```
+
+The overdispersion statistic is better, but the fit can still be improved. For that we handle dependency due to area (spatial) and month (temporal) as random terms. 
+
+```{r, eval = T, echo = T, message = T, warning = F}
+
+M3 <- glmmTMB(Catch ~ TripDays + Nlength +
+                     (1|Area) + (1|YrMonth),
+                      family = "nbinom1"(link = "log"),
+                      ziformula=~ 0,
+                      data = hils)
+
+check_overdispersion(M3)
+```
+
+Overdispersion is fine, but we can a warning that the model is probably overparameterised. This is because the data does not contain enough information to estimate model parameters properly). So we will use a zero-inflated negative binomial model (ZINB1)
+
+```{r, eval = T, echo = T, message = T, warning = F}
+
+# Try a zero-inflated negative binomial model (ZINB1)
+M4 <- glmmTMB(Catch ~ Area + Nlength + TripDays + YrMonth, # models count data
+                      family = "nbinom1"(link = "log"),
+                      ziformula=~ 1,                       # models binomial data
+                      data = hils)
+check_overdispersion(M4)
+```
+
+Now the dispersion ratio is clearly smaller than 1, so the model is a bit underdispersed. We will next include the area and time into both the count data and the binomial data part. 
+
+```{r, eval = T, echo = T, message = T, warning = F}
+
+# Zero-inflated negative binomial (ZINB2)
+M5 <- glmmTMB(Catch ~ Area + Nlength + TripDays + YrMonth, # models count data
+                      family = "nbinom1"(link = "log"),
+                      ziformula =~ Area + YrMonth,         # models binomial data
+                      data = hils)
+check_overdispersion(M5)
+```
+
+Compare all models using Akaike information criterion
+
+```{r, eval = T, echo = T, message = T, warning = F}
+Out <- AIC(M1,M2,M3,M4,M5)
+rownames(Out) <- c("Poisson GLM",
+                   "NB GLM",
+                   "NB GLMM",
+                   "ZINB1 GLM",
+                   "ZINB2 GLM")
+colnames(Out) <- c("df", "AIC")
+round(Out,0)
+```
+
+The negative binomial GLM model (M2) has the lowest AIC value, so we consider it the best model. Next, we will simulate new data from model parameters and plot this datas as a frequency histogram. We expect the observed number of zeros in the data should fall within a the histogram for simulated number of zeros. We will do that with both model 2 and model 3 (even though we had a warning when we ran model 3) 
+
+```{r, eval = T, echo = T, message = F, warning = F}
+par(mfrow = c(2,1), mar = c(5,5,3,3))
+
+# Model M2 (NB GLM)
+testZeroInflation(M2)
+
+# Model M2 (NB GLMM)
+testZeroInflation(M3)
+
+```
+
+We see that the second model produces a more likely distribution of data relative to our observation (red line, or observed number of zeros, fall within the simulated values), although the model cannot fully estimate all paramters given this dataset. 
+
+## Plot model outputs and parameters 
+
+We plot model outputs to show predictions on how catches will depend on the number of days spent fishing and gillnet lengths. 
+
+```{r, eval = T, echo = F, message = F, warning = F}
+# Plot model
+
+set_theme(
+  axis.linecolor = "black", 
+  axis.textcolor = "black",
+  axis.tickslen = 0.2,
+  axis.title.size = 0.7,
+  axis.title.color = "black",
+  axis.textsize = 0.8,
+  geom.outline.size = 1, 
+  base = theme_blank())
+
+# Plot fixed effects
+plot_model(M2, vline.color = "red", 
+           sort.est = FALSE, 
+           show.values = TRUE)
+
+# Plot separately
+
+# Plot year
+plot1 <- plot_model(M2, type = "pred", terms = c("TripDays"), show.data = F,
+                    title = "", 
+                    axis.title = c("Days fishing","Hilsha catch (kg)"))
+
+# Plot log flow
+plot2 <- plot_model(M2, type = "pred", terms = c("Nlength"), show.data = F,
+                    title = "", 
+                    axis.title = c("Gillnet length (m)","Hilsha catch (kg)"))
+
+# Plot area
+plot3 <- plot_model(M2, type = "pred", terms = c("Area"), show.data = F,
+                    title = "", 
+                    axis.title = c("Area","Hilsha catch (kg)"))
+
+# Plot month
+plot4 <- plot_model(M2, type = "pred", terms = c("YrMonth"), show.data = F,
+                    title = "", 
+                    axis.title = c("Month","Hilsha catch (kg)"))
+
+grid.arrange(plot1, plot2, plot3, plot4, nrow = 2)
+```
+
+We can also plot how catches depend on the trip length during different months and in different fishing areas. 
+
+```{r, eval = T, echo = F, message = F, warning = F}
+# Define preferred figure format
+My_theme <- theme(panel.background = element_blank(),
+                  panel.border = element_rect(fill = NA, size = 1),
+                  strip.background = element_rect(fill = "white", 
+                                                  color = "white", size = 1),
+                  text = element_text(size = 14),
+                  panel.grid.major = element_line(colour = "white", size = 0.1),
+                  panel.grid.minor = element_line(colour = "white", size = 0.1))
+
+# Plot factors together - days
+plot_model(M2,
+           type = "pred", 
+           terms = c("TripDays", "Area", "YrMonth"),
+           colors = c("blue", "firebrick2", "green2"),
+           show.data = F,
+           pred.type = c("fe"),
+           title = "",
+           axis.title = c("Days fishing", 
+                          "Catch (kg)"),
+           show.legend = T,
+           show.values = F) + My_theme
+
+# Plot factors together - net length
+plot_model(M2,
+           type = "pred", 
+           terms = c("Nlength", "Area", "YrMonth"),
+           colors = c("blue", "firebrick2", "green2"),
+           show.data = F,
+           pred.type = c("fe"),
+           title = "",
+           axis.title = c("Gillnet length (m)", 
+                          "Catch (kg)"),
+           show.legend = T,
+           show.values = F) + My_theme
+```
+
+## Plot model parameter estimates in a publication format
+
+```{r, eval = T, echo = F, message = F, warning = F}
+tab_model(M2,
+          show.zeroinf = F,
+          dv.labels = c("NB GLM (Hilsha)"),
+          string.pred = "Coeffcient",
+          string.ci = "Conf. Int (95%)",
+          string.p = "P-value",
+          p.style = c("numeric"),
+          emph.p = FALSE,
+          transform = NULL)
+```
+
