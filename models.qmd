@@ -9,12 +9,36 @@ We have developed and applied a range of statistical and mechanistic models, whi
 
 Scientific monitoring and artisanal, commercial or recreational fish catch data is often used to assess population status and trends, but such data are usually complex and require careful standardisation. There are several approaches that can be used for CPUE standardisation and we present three potential models of increasing complexity.
 
-::: {layout-ncol="3" layout="[[1,1]"}
-![[1. Generalized linear model (GLM) based standardisation](GLM_standardisation.qmd) <br> This model could be used for scientific monitoring or commercial catch data and applies GLM with Tweedie distribution to extract annual CPUE residuals. Here we apply the model for five common Lithuanian freshwater species](images/course_image.png){fig-align="left" width="50%" height="500"}
+::: {.grid}
 
-![[2. Zero inflated models for CPUE standardisation](Zero_inflated_model.qmd) <br> If catch data has a lot of zeros, one can also GLMs with adjustments for zero inflation.](images/zero_inflated.png){fig-align="left" width="50%" height="500"}
+::: {.g-col-4}
+![](images/course_image.png)
+:::
 
-![[3. Bayesian model with INLA](Bayesian_inla.qmd) <br> This is a Bayesian model that account for autocorrelation in catches across time and space. It uses approximate Bayesian inference implemented in the [INLA package](https://www.r-inla.org/) .](images/inlaCPUE.png){fig-align="left" width="50%" height="500"}
+::: {.g-col-8}
+[1. Generalized linear model (GLM) based standardisation](GLM_standardisation.qmd) <br> 
+This model could be used for scientific monitoring or commercial catch data and applies GLM with Tweedie distribution to extract annual CPUE residuals. Here we apply the model for five common Lithuanian freshwater species.
+:::
+
+::: {.g-col-4 style="justify-items: center;"}
+![](images/zero_inflated.png)
+:::
+
+::: {.g-col-8}
+[2. Zero inflated models for CPUE standardisation](Zero_inflated_model.qmd) 
+<br> 
+If catch data has a lot of zeros, one can also GLMs with adjustments for zero inflation.
+:::
+
+:::
+
+
+::: {layout="[33, 33, 33]" layout-valign="top"}
+![[1. Generalized linear model (GLM) based standardisation](GLM_standardisation.qmd) <br> This model could be used for scientific monitoring or commercial catch data and applies GLM with Tweedie distribution to extract annual CPUE residuals. Here we apply the model for five common Lithuanian freshwater species](images/course_image.png){fig-align="left" width="50%"}
+
+![[2. Zero inflated models for CPUE standardisation](Zero_inflated_model.qmd) <br> If catch data has a lot of zeros, one can also GLMs with adjustments for zero inflation.](images/zero_inflated.png){fig-align="left" width="50%"}
+
+![[3. Bayesian model with INLA](Bayesian_inla.qmd) <br> This is a Bayesian model that account for autocorrelation in catches across time and space. It uses approximate Bayesian inference implemented in the [INLA package](https://www.r-inla.org/) .](images/inlaCPUE.png){fig-align="left" width="50%"}
 :::
 
 ## Surplus production models for stock assessment
