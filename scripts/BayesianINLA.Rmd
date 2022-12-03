@@ -8,44 +8,71 @@ output:
     theme: cerulean
 ---
 
-
 ```{r, eval = T, echo = F, message = F, warning = F}
 
-# Start by loading packages and data
-library(anytime)
-library(arm)
-library(bit)
-library(brinla)
-library(car)
-library(cellranger)
-library(DHARMa)
-library(gargle)
-library(GGally)
-library(ggeffects)
-library(ggplot2)
-library(ggpubr)
-library(glmmTMB)
-library(grid)
-library(gridExtra)
-library(INLA)
+# Loading packages and data
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(
+     "tidyverse",
+    "anytime",
+    "arm",
+    "bit",
+    # "brinla",
+    "car",
+    "cellranger",
+    "DHARMa",
+    "gargle",
+    "GGally",
+    "ggeffects",
+    "ggplot2",
+    "ggpubr",
+    "glmmTMB",
+    "grid",
+    "gridExtra",
+    "INLA",
+    # "inlatools",
+    "lattice",
+    "lawstat",
+    "lme4",
+    "mgcv",
+    "nlme",
+    "outliers",
+    "performance",
+    "plotly",
+    "plyr",
+    "tidyverse",
+    "scales",
+    "sjlabelled",
+    "sjmisc",
+    "sjPlot",
+    "timechange",
+    "tzdb",
+    "vroom"
+    
+)
+
+ip <- rownames(installed.packages())
+if (!"remotes" %in% ip) {
+  install.packages("remotes")
+}
+if (!"INLA" %in% ip) {
+  install.packages(
+    "INLA", 
+    repos = c(getOption("repos"), "https://inla.r-inla-download.org/R/stable")
+  )
+}
+
+if(!("inlatools" %in% installed.packages()[,"Package"])){
+    remotes::install_github("inbo/inlatools")
+}
+
+
+if(!("brinla" %in% installed.packages()[,"Package"])){
+    remotes::install_github("julianfaraway/brinla")
+}
+
 library(inlatools)
-library(lattice)
-library(lawstat)
-library(lme4)
-library(mgcv)
-library(nlme)
-library(outliers)
-library(performance)
-library(plotly)
-library(plyr)
-library(tidyverse)
-library(scales)
-library(sjlabelled)
-library(sjmisc)
-library(sjPlot)
-library(timechange)
-library(tzdb)
-library(vroom)
+library(brinla)
 
 ######################################
 
@@ -76,13 +103,13 @@ multi_dotplot <- function(filename, Xvar, Yvar){
 
 ```
 
-Note that we are using a data file that has already been explored and modified to remove outliers. Read the introduction to the model to see where to find the original data file and explanation on data exploration 
+*Note that we are using a data file that has already been explored and modified to remove outliers. Read the introduction to the model to see where to find the original data file and explanation on data exploration*
 
-## Data exploration 
+## *Data exploration*
 
-### Check outliers 
+### *Check outliers*
 
-The plots below suggest that there are no outliers in the dataset
+*The plots below suggest that there are no outliers in the dataset*
 
 ```{r, eval = T, echo = F, message = F, warning = F}
 
@@ -99,9 +126,9 @@ grid.arrange(p1, p2, nrow = 1)
 
 ```
 
-### Normality and homogeneity of variance 
+### *Normality and homogeneity of variance*
 
-The plots below show that as catches and effort increase, so does the variance. This suggest a departure from the homogeneity of variance. 
+*The plots below show that as catches and effort increase, so does the variance. This suggest a departure from the homogeneity of variance.*
 
 ```{r, eval = T, echo = F, message = F, warning = F}
 
@@ -119,13 +146,13 @@ ggplot(zan, aes(x = Effort, y = (Catch))) +
 
 ```
 
-# MODEL 
+# *MODEL*
 
-Our aim is to Standardise pikeperch gillnet catch (kg) as a function   of effort, station, years and months within years. We want to get a standardised time series of abundance. For that we will apply (Bayesian) INLA model for time-series analysis with a random walk model of order 1 (rw1). This model has 2 residual components, trend due to time (year) and pure noise
+*Our aim is to Standardise pikeperch gillnet catch (kg) as a function of effort, station, years and months within years. We want to get a standardised time series of abundance. For that we will apply (Bayesian) INLA model for time-series analysis with a random walk model of order 1 (rw1). This model has 2 residual components, trend due to time (year) and pure noise*
 
-## Fit increasingly complex models
+## *Fit increasingly complex models*
 
-We start  with an intercept only model. Catch is modelled as a function of year, whereas 'rw1' part imposes a temporal trend. We fit a gamma distribution using INLA. A gamma distribution is strictly positive (no zeros) and skewed (like our catch data)
+*We start with an intercept only model. Catch is modelled as a function of year, whereas 'rw1' part imposes a temporal trend. We fit a gamma distribution using INLA. A gamma distribution is strictly positive (no zeros) and skewed (like our catch data)*
 
 ```{r, eval = T, echo = T, message = T, warning = F}
 # Create a formula
@@ -151,7 +178,7 @@ lines(Yearsm[, c(1, 4)], lty=2)
 lines(Yearsm[, c(1, 6)], lty=2)
 ```
 
-The result above shows that if we only look at one trend, we see decreasing catches through time. But effort also might have changed, so we need to include effort in the model. 
+*The result above shows that if we only look at one trend, we see decreasing catches through time. But effort also might have changed, so we need to include effort in the model.*
 
 ```{r, eval = T, echo = T, message = T, warning = F}
 #create a formula with effort
@@ -177,8 +204,7 @@ lines(Yearsm[, c(1, 4)], lty=2)
 lines(Yearsm[, c(1, 6)], lty=2)
 ```
 
-Now the trend is clearly different. This is because we are not including effort in the model, which is important. 
-However, we also need to account for potentially different trends across months. So now we will nest month within a year
+*Now the trend is clearly different. This is because we are not including effort in the model, which is important. However, we also need to account for potentially different trends across months. So now we will nest month within a year*
 
 ```{r, eval = T, echo = T, message = T, warning = F}
 #create a formula
@@ -222,7 +248,7 @@ lines(Monsm[, c(1, 4)], lty=2)
 lines(Monsm[, c(1, 6)], lty=2)
 ```
 
-We can see that catches change a lot during the year and are low in summer months. So we definitely need to include month in the model. Since we have several stations, we probably also need to include stations in the model. 
+*We can see that catches change a lot during the year and are low in summer months. So we definitely need to include month in the model. Since we have several stations, we probably also need to include stations in the model.*
 
 ```{r, eval = T, echo = T, message = T, warning = F}
 
@@ -268,9 +294,9 @@ lines(Monsm[, c(1, 4)], lty=2)
 lines(Monsm[, c(1, 6)], lty=2)
 ```
 
-## Explore the best model
+## *Explore the best model*
 
-Now we look at the Bayesian residuals 
+*Now we look at the Bayesian residuals*
 
 ```{r, eval = T, echo = F, message = T, warning = F}
 
@@ -301,7 +327,7 @@ boxplot(E1 ~ Month,
 abline(h = 0, lty = 2)
 ```
 
-These residuals look ok. However, if we fit residuals versus effort we see a strange non linear pattern, which suggests that the model does not fully fit. We will then plot it for each station and find that there seem to be different residual and therefore likely also CPUE trends in different stations. 
+*These residuals look ok. However, if we fit residuals versus effort we see a strange non linear pattern, which suggests that the model does not fully fit. We will then plot it for each station and find that there seem to be different residual and therefore likely also CPUE trends in different stations.*
 
 ```{r, eval = T, echo = F, message = T, warning = F}
 zan$E1 <- E1
@@ -323,7 +349,7 @@ resplot1
 resplot1 + facet_grid(~fStn)
 ```
 
-To solve this problem we make station a fixed effect and add an interaction with effort to capture non-linearity. If different stations have different catch trends this interaction should be included. So we define a yet another model with Effort * fStn interaction and fit it. 
+*To solve this problem we make station a fixed effect and add an interaction with effort to capture non-linearity. If different stations have different catch trends this interaction should be included. So we define a yet another model with Effort \* fStn interaction and fit it.*
 
 ```{r, eval = T, echo = T, message = T, warning = F}
 #define the model
@@ -369,7 +395,7 @@ lines(Monsm[, c(1, 6)], lty=2)
 
 ```
 
-Now we look at the residuals of our new model 
+*Now we look at the residuals of our new model*
 
 ```{r, eval = T, echo = T, message = T, warning = F}
 
@@ -425,11 +451,11 @@ resplot2
 
 ```
 
-The final plot shows that the significant nonlinear pattern in residuals is mostly gone (uncertainty ranges include zero). 
+*The final plot shows that the significant nonlinear pattern in residuals is mostly gone (uncertainty ranges include zero).*
 
-## Plot model outputs
+## *Plot model outputs*
 
-First we plots the overall temporal trend in years and months 
+*First we plots the overall temporal trend in years and months*
 
 ```{r, eval = T, echo = T, message = T, warning = F}
 # Plot temporal effects
@@ -463,9 +489,9 @@ ggplotly(p2)
 
 ```
 
-## Plot catch versus effort 
+## *Plot catch versus effort*
 
-Here we plot the model output where we show catch as a function of effort for each station. Note that these predictions will be shown for one selected year (year 2002 in this case) and month (September), whereas data scatterplot shows the full data. 
+*Here we plot the model output where we show catch as a function of effort for each station. Note that these predictions will be shown for one selected year (year 2002 in this case) and month (September), whereas data scatterplot shows the full data.*
 
 ```{r, eval = T, echo = F, message = T, warning = F}
 # ###########################################
@@ -551,9 +577,9 @@ ggplot() +
   theme(legend.position = "none")
 ```
 
-## Plot CPUE through time 
+## *Plot CPUE through time*
 
-Now we plot CPUE through time for a selected station (station 1) and selected effort level (20K), for all months
+*Now we plot CPUE through time for a selected station (station 1) and selected effort level (20K), for all months*
 
 ```{r, eval = T, echo = F, message = T, warning = F}
 

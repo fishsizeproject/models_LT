@@ -1,24 +1,269 @@
 [
   {
+    "objectID": "Bayesian_inla.html",
+    "href": "Bayesian_inla.html",
+    "title": "Bayesian CPUE standardisation using INLA",
+    "section": "",
+    "text": "Fisheries catches through time are usually correlated. Catch in one year is not independent of the catch in the previous year. In CPUE standardisation models we should ideally account for this autocorrelation. The GLM based models don’t really do that, despite being a popular approach. Therefore here we will develop and apply a different model which accounts for spatial and temporal correlation in our catches.\nIn this model we will estimate model parameters using approximate Bayesian inference as implemented in the INLA package. The approximate Bayesian inference runs much faster than full inference using MCMC approach and with INLA package it can be applied to a wide range of distributions. For a basic introduction into the Bayesian approach and why it is useful, check out these slides.\nThe slides and the model, together with a detailed description of all the modelling steps have been presented in the last lecture of the CPUE standardisation course, so we recommend you watch the lecture before applying the model. Also, before proceeding with CPUE standardisation, make sure you carefully assess and explore your data. We have prepared two courses and different scripts for data exploration, which you can find on our CPUE standardisation course webpage.\nThe model is coded in R language, so you will need R and RStudio to run it. If you need a brief introduction into R, check this introductory page from an online course on size based modelling."
+  },
+  {
+    "objectID": "Bayesian_inla.html#model-code",
+    "href": "Bayesian_inla.html#model-code",
+    "title": "Bayesian CPUE standardisation using INLA",
+    "section": "Model code",
+    "text": "Model code\nThe main model code is available in this R markdown script and is demonstrated using this dataset from 22 years of commercial pikeperch (Sander lucioperca) catches in the Baltic Sea. You can download the model and modify the script according to your needs. Before you run the model you will need to install all the R packages, as is explained in this R script.\nTo look at the model code and outputs without having to run the code, you can click here. After applying the model you should be able to plot predicted CPUE and its uncertainty through time, like in the plot below."
+  },
+  {
+    "objectID": "Bayesian_inla.html#application-of-the-model",
+    "href": "Bayesian_inla.html#application-of-the-model",
+    "title": "Bayesian CPUE standardisation using INLA",
+    "section": "Application of the model",
+    "text": "Application of the model\nWe are currently working on applying this model to CPUE standardisation of the long term data set from the Curonian Lagoon and Kaunas Water Reservoir in Lithuania. Stay tuned for more outputs. If you are interested to learn more, please contact us as lydekaipaliepus@gamtc.lt"
+  },
+  {
+    "objectID": "curonian_mizer.html",
+    "href": "curonian_mizer.html",
+    "title": "MQMF",
+    "section": "",
+    "text": "A link to the code\nA link for more info\nA link to the model"
+  },
+  {
+    "objectID": "detecting_size.html",
+    "href": "detecting_size.html",
+    "title": "MQMF",
+    "section": "",
+    "text": "A link to the code\nA link for more info\nA link to the model"
+  },
+  {
+    "objectID": "GLM_standardisation.html",
+    "href": "GLM_standardisation.html",
+    "title": "Standardising catch per unit effort (CPUE) using generalised linear models",
+    "section": "",
+    "text": "Before proceeding with CPUE standardisation, first make sure you carefully assess and explore your data. We have prepared the courses and scripts for data exploration, which you can find on our CPUE standardisation course webpage.\nOne commonly used approach for CPUE data standardisation applies generalized linear models (GLM). Here we model all variables that could impact our catches and extract annual deviations and their uncertainty. From this we can plot a standardized time series of population abundance.\nIn this set of slides you will find main points about GLM based CPUE standardisation.\nFor examples on how this method has been applied to other stocks, see references here and here"
+  },
+  {
+    "objectID": "GLM_standardisation.html#model-code",
+    "href": "GLM_standardisation.html#model-code",
+    "title": "Standardising catch per unit effort (CPUE) using generalised linear models",
+    "section": "Model code",
+    "text": "Model code\nWe have developed GLM based models for CPUE standardisation of five fish species in the Curonian Lagoon and Kaunas Water reservoir (Lithuania). To use our models you first need to convert your dataset into a format where each row corresponds to a unique entry indicating all catches per gear, mesh size, length, season, fishing trip or other variables you want to include in the model. You can use this code to covert your data table into a suitable format.\nTo apply our GLM based standardisation model you can use this code where you will apply generalized linear models with Tweedie distribution and assess important predictor variables. Once you extract annual residuals and associated uncertainty you can plot the time series, as in the image below.\n EGLE: need to add Rmd scripts"
+  },
+  {
+    "objectID": "GLM_standardisation.html#application-of-the-model",
+    "href": "GLM_standardisation.html#application-of-the-model",
+    "title": "Standardising catch per unit effort (CPUE) using generalised linear models",
+    "section": "Application of the model",
+    "text": "Application of the model\nTo learn more about the application of this CPUE standardisation model to Kaunas Water Reservoir fish populations, you can read our publication in journal Fishes.\nYou can also watch this conference talk to learn more about this analysis.\nOnce you conduct your CPUE standardisation, you can use the standardised values in surplus production models, as explained on this website."
+  },
+  {
+    "objectID": "growth_change.html",
+    "href": "growth_change.html",
+    "title": "MQMF",
+    "section": "",
+    "text": "A link to the code\nA link for more info\nA link to the model"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "About this website",
+    "title": "Models for sustainable inland fisheries",
     "section": "",
-    "text": "A link to our twitter"
+    "text": "This page and models presented here have been created by Asta Audzijonyte, Carl Smith, Catarina Silva, Egle Jakubavičiūtė, Dalia Grendaitė, Max Lindmark, Freddie Heather, Steve Midway and Gustav Delius.\nIf you have questions and suggestions please contact us at lydekaipaliepus@gamtc.lt\nStart exploring models\nGo back to the project website."
+  },
+  {
+    "objectID": "jabba_models.html",
+    "href": "jabba_models.html",
+    "title": "Surplus production models",
+    "section": "",
+    "text": "JABBA is a Bayesian State-Space Surplus Production Model framework developed by Winker et al. 2018.\nIt uses catch and relative abundance time series and requires prior information on a) the resilience parameter r (intrinsic rate of population increase), b) carrying capacity K and c) the relative initial biomass at the beginning of the time series.\nYou can find all information in the developers’ [vignette]"
+  },
+  {
+    "objectID": "jabba_models.html#model-code",
+    "href": "jabba_models.html#model-code",
+    "title": "Surplus production models",
+    "section": "Model code",
+    "text": "Model code\nHere is an example code of how we used JABBA for modeling five species in the Curonian Lagoon and Kaunas water reservoir (Lithuania).\n  EGLE: need to add Rmd scripts"
+  },
+  {
+    "objectID": "jabba_models.html#application-of-the-model",
+    "href": "jabba_models.html#application-of-the-model",
+    "title": "Surplus production models",
+    "section": "Application of the model",
+    "text": "Application of the model\nTo learn more about surplus production modeling to Curonian Lagoon and Kaunas Water Reservoir fish stocks and results that could be of interest to managers, you can read this and this summary or watch this conference talk."
+  },
+  {
+    "objectID": "ML_fish_size.html",
+    "href": "ML_fish_size.html",
+    "title": "Estimating fish size classes using image classification and machine learning models",
+    "section": "",
+    "text": "Here we present a simple approach to develop models for estimating fish size classes from images. We have prepared a scripts for data pre-processing and machine learning model development, which you can find on our Online course webpage.\nIn this publication you will find a detailed description of the method and a pilot case-study where we demonstrate potential use for estimating fish size classes from images without a speficied reference object. You can also find all the scripts used in the framework in our Github page."
+  },
+  {
+    "objectID": "ML_fish_size.html#model-code",
+    "href": "ML_fish_size.html#model-code",
+    "title": "Estimating fish size classes using image classification and machine learning models",
+    "section": "Model code",
+    "text": "Model code\nTo use our models it is very important that fish size classes in your dataset are identified correctly, otherwise your model will not be very useful. You can upload images (in JPEG or PNG format) to your Google drive by size class (i.e. fish images of each size class per folder), following this directory structure:\ndataset\n|__ class5\n    |______ 100080576_f52e8ee070_n.PNG\n    |______ 14167534527_781ceb1b7a_n.PNG\n    |______ ...\n|__ class10\n    |______ 10043234166_e6dd915111_n.PNG\n    |______ 1426682852_e62169221f_m.PNG\n    |______ ...\n|__ class15\n    |______ 102501987_3cdb8e5394_n.PNG\n    |______ 14982802401_a3dfb22afb.PNG\n    |______ ...\n|__ ...\n\nTo apply our model you can use this code:\n\n\n\nOpen In Colab"
+  },
+  {
+    "objectID": "ML_fish_size.html#application-of-the-model",
+    "href": "ML_fish_size.html#application-of-the-model",
+    "title": "Estimating fish size classes using image classification and machine learning models",
+    "section": "Application of the model",
+    "text": "Application of the model\nYou can also watch this talk for the “Online seminar: Recreational angling effort and engagement in the digital age” to learn more about this model."
+  },
+  {
+    "objectID": "ML_fish_species.html",
+    "href": "ML_fish_species.html",
+    "title": "Machine learning based image collection, annotation and classification of fish species",
+    "section": "",
+    "text": "Here we present a scalable user-friendly artificial intelligence (AI) framework to develop fish species identification models. We have prepared a course and scripts for data pre-processing, image processing and machine learning model development, which you can find on our Online course webpage.\nIn this publication in the journal Sustainability you will find a detailed description of the framework, a pilot case-study where we demonstrate potential use for recreational fisheries research, a summary of the knowledge gained from the case study application and an outline of the main challenges and potential future development. You can also find all the scripts used in the framework in our Github page.\n Open-source modular framework for large scale image storage, handling, annotation and automatic classification"
+  },
+  {
+    "objectID": "ML_fish_species.html#model-code",
+    "href": "ML_fish_species.html#model-code",
+    "title": "Machine learning based image collection, annotation and classification of fish species",
+    "section": "Model code",
+    "text": "Model code\nTo use our models it is very important that fish species (or ecotypes or any other classes you want your model to identify) in your dataset are identified correctly, otherwise your model will not be very useful (you might have heard the expression “garbage in - garbage out”). You can upload images (in JPEG or PNG format) to your Google drive by species (i.e. one species per folder - please make sure these are correctly identified), following this directory structure:\ndataset\n|__ perch\n    |______ 100080576_f52e8ee070_n.PNG\n    |______ 14167534527_781ceb1b7a_n.PNG\n    |______ ...\n|__ striped_bass\n    |______ 10043234166_e6dd915111_n.PNG\n    |______ 1426682852_e62169221f_m.PNG\n    |______ ...\n|__ trout\n    |______ 102501987_3cdb8e5394_n.PNG\n    |______ 14982802401_a3dfb22afb.PNG\n    |______ ...\n|__ ...\n\nTo apply our model you can use this code:\n\n\n\nOpen In Colab"
+  },
+  {
+    "objectID": "ML_fish_species.html#application-of-the-model",
+    "href": "ML_fish_species.html#application-of-the-model",
+    "title": "Machine learning based image collection, annotation and classification of fish species",
+    "section": "Application of the model",
+    "text": "Application of the model\nYou can also watch this talk for the “Online workshop: Machine learning, fishing and citizen science” and this talk for the “Online seminar: Recreational angling effort and engagement in the digital age” to learn more about this model."
   },
   {
     "objectID": "models.html",
     "href": "models.html",
     "title": "Overview of models",
     "section": "",
-    "text": "Temperature model  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n\n\n\n\n\n\nSurplus production models  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n\n\n\n\n\n\nVon Bertalanffy Growth models  Lipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n\n\n\n\n\n\n\n\nMQMF Model  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "text": "We have developed and applied a range of statistical and mechanistic models, which we used in our studies and are happy to share with others. We hope these models will be useful for fisheries research and management. The models are available for free non-commercial use, but please reference the original source (publications or this website)."
   },
   {
-    "objectID": "mqmf.html",
-    "href": "mqmf.html",
+    "objectID": "models.html#models-for-catch-per-unit-effort-cpue-standardisation",
+    "href": "models.html#models-for-catch-per-unit-effort-cpue-standardisation",
+    "title": "Overview of models",
+    "section": "Models for catch per unit effort (CPUE) standardisation",
+    "text": "Models for catch per unit effort (CPUE) standardisation\nScientific monitoring and artisanal, commercial or recreational fish catch data is often used to assess population status and trends, but such data are usually complex and require careful standardisation. There are several approaches that can be used for CPUE standardisation and we present three potential models of increasing complexity.\n\n\n\n\n\n\n1. Generalized linear model (GLM) based standardisation  This model could be used for scientific monitoring or commercial catch data and applies GLM with Tweedie distribution to extract annual CPUE residuals. Here we apply the model for five common Lithuanian freshwater species.\n\n\n\n\n\n\n2. Zero inflated models for CPUE standardisation  If catch data has a lot of zeros, one can also GLMs with adjustments for zero inflation.\n\n\n\n\n\n\n3. Bayesian model with INLA  This is a Bayesian model that account for autocorrelation in catches across time and space. It uses approximate Bayesian inference implemented in the INLA package."
+  },
+  {
+    "objectID": "models.html#surplus-production-models-for-stock-assessments",
+    "href": "models.html#surplus-production-models-for-stock-assessments",
+    "title": "Overview of models",
+    "section": "Surplus production models for stock assessments",
+    "text": "Surplus production models for stock assessments\nSurplus production (SP) models are commonly used to assess data-poor fish stocks and are based on time series of catches and population abundance index (such as standardised CPUE time series, from the models above). These models assume that fish population abundance depends on its regeneration rate, carrying capacity and catches. SP models have been successfully applied to many stocks and, despite their simple assumptions, often perform surprisingly well, assuming the population abundance and catch time series are reliable.\n\n\n\n\n\n\n4. Understand SP models  This little model lets you explore key assumptions behind surplus production population models. See how sustainable yield will depend on population regeneration and fishing mortality rate. See how catching more fish sometimes can give you less long term yield.\n\n\n\n\n\n\n\n\n\n\n5. Apply SP models with JABBA  JABBA is an advanced and user friendly surplus production modelling framework. Here you can learn about its application and explore five models adapted for five Lithuanian fish species, from Curonian lagoon and Kaunas Water reservoir."
+  },
+  {
+    "objectID": "models.html#fish-growth-models",
+    "href": "models.html#fish-growth-models",
+    "title": "Overview of models",
+    "section": "Fish growth models",
+    "text": "Fish growth models\nFish growth and therefore body sizes are highly variable, as it depends on temperature, food availability and many other processes. Understanding and modelling how and why growth can change is therefore an important part of fisheries research.\n\n\n\n\n\n\n6. Von-Bertalanffy growth  With this model you can explore Von-Bertalanffy function parameters and asses how well it fits your data. You can also visualise how variation in growth will make size classes indistinguishable as fish get older.\n\n\n\n\n\n\n7. Temperature impacts on growth  Mechanistic life-history optimisation based model to assess how temperature driven changes in intake, metabolism and reproduction can affect growth. You can run this model in Excel or R.\n\n\n\n\n\n\n8. Detecting growth changes  Bayesian model to estimate changes in growth parameters from a time series of age-length data. The model is applied to fish growth data from a nuclear power plant heated lake in Lithuania.\n\n\n\n\n\n\n9. Detecting size changes  Bayesian model to estimate long term changes in average fish size using long term monitoring datasets from multiple locations."
+  },
+  {
+    "objectID": "models.html#machine-learning-models",
+    "href": "models.html#machine-learning-models",
+    "title": "Overview of models",
+    "section": "Machine learning models",
+    "text": "Machine learning models\nMachine learning (ML) enables rapid analyses of large image and datasets and is an important step to facilitate citizen science driven data collection techniques. During our project we have developed two machine learning models for fish species and size identification.\n\n\n\n\n\n\n10. ML for species identification  Here you can learn about our pipeline for machine learning based image classification tools. The pipeline has been applied to fish species identification, but could be used for any other images classes.\n\n\n\n\n\n\n\n\n\n\n11. ML for fish size estimation  Information on fish sizes is very important for population management, but many citizen science or social media platforms do not collect it. We are also developing a model to identify fish sizes based on photos of anglers holding fish."
+  },
+  {
+    "objectID": "models.html#satellite-data-analysis",
+    "href": "models.html#satellite-data-analysis",
+    "title": "Overview of models",
+    "section": "Satellite data analysis",
+    "text": "Satellite data analysis\nRemote sensing and satellite data is now being collected on high temporal and spatial resolution. However, it is often challenging to access and process these data. We have developed some models and tools to aid with satellite based water surface temperature and chlorophyll A data acquisition and analysis.\n\n\n\n\n\n\n12. Satellite based temperature data  This is a use friendly model and tool to extract and analyse satellite based water surface temperature observations from Google Earth engine. You will need a Google account and coordinates of your locations.\n\n\n\n\n\n\n13. Satellite based chlorophyll A data  This tool will help you extract chlorophyll A data from satellite observations and apply a model to filter out unreliable data and estimate lake class."
+  },
+  {
+    "objectID": "models.html#size-based-ecosystem-models",
+    "href": "models.html#size-based-ecosystem-models",
+    "title": "Overview of models",
+    "section": "Size based ecosystem models",
+    "text": "Size based ecosystem models\nSize based community and ecosystem models represent a powerful tool to explore potential outcomes of different fisheries management strategies, species interactions, climate change and a lot more. In this project we are developing a size based model for the Curonian lagoon ecosystem.\n\n\n\n\n\n\n14. Sized based models for Curonian lagoon and Baltic Sea  Learn about the potential climate change impacts in the Baltic Sea, explore a basic Curonian lagoon model and understand key principles of size based modelling, as implemented in a R package mizer."
+  },
+  {
+    "objectID": "satelite_chla.html",
+    "href": "satelite_chla.html",
     "title": "MQMF",
     "section": "",
     "text": "A link to the code\nA link for more info\nA link to the model"
+  },
+  {
+    "objectID": "satelite_temp.html",
+    "href": "satelite_temp.html",
+    "title": "MQMF",
+    "section": "",
+    "text": "A link to the code\nA link for more info\nA link to the model"
+  },
+  {
+    "objectID": "scripts/BayesianINLA.html",
+    "href": "scripts/BayesianINLA.html",
+    "title": "R code for Bayesian CPUE time series standardisation using INLA",
+    "section": "",
+    "text": "Note that we are using a data file that has already been explored and modified to remove outliers. Read the introduction to the model to see where to find the original data file and explanation on data exploration"
+  },
+  {
+    "objectID": "scripts/BayesianINLA.html#data-exploration",
+    "href": "scripts/BayesianINLA.html#data-exploration",
+    "title": "R code for Bayesian CPUE time series standardisation using INLA",
+    "section": "Data exploration",
+    "text": "Data exploration\n\nCheck outliers\nThe plots below suggest that there are no outliers in the dataset\n\n\n\n\n\n\n\nNormality and homogeneity of variance\nThe plots below show that as catches and effort increase, so does the variance. This suggest a departure from the homogeneity of variance."
+  },
+  {
+    "objectID": "scripts/BayesianINLA.html#fit-increasingly-complex-models",
+    "href": "scripts/BayesianINLA.html#fit-increasingly-complex-models",
+    "title": "R code for Bayesian CPUE time series standardisation using INLA",
+    "section": "Fit increasingly complex models",
+    "text": "Fit increasingly complex models\nWe start with an intercept only model. Catch is modelled as a function of year, whereas ‘rw1’ part imposes a temporal trend. We fit a gamma distribution using INLA. A gamma distribution is strictly positive (no zeros) and skewed (like our catch data)\n\n# Create a formula\nf1 <- Catch ~ + f(Year, model = \"rw1\")\n\n#fit a model\nI1 <- inla(f1, \n           control.compute = list(dic = TRUE), #estimate dic for model comparison\n           family = \"Gamma\",\n           data = zan)\n\n# Plot the time(year) trend\nYearsm <- I1$summary.random$Year\nFit1   <- I1$summary.fitted.values[,\"mean\"]\n\npar(mfrow = c(1,1), mar = c(5,5,2,2), cex.lab = 1.5)\nplot(Yearsm[,1:2], type='l',\n     xlab = 'Year', \n     ylab = 'Random walk trend',\n     ylim = c(-1, 1))\nabline(h=0, lty=3)\nlines(Yearsm[, c(1, 4)], lty=2)\nlines(Yearsm[, c(1, 6)], lty=2)\n\n\n\n\nThe result above shows that if we only look at one trend, we see decreasing catches through time. But effort also might have changed, so we need to include effort in the model.\n\n#create a formula with effort\nf2 <- Catch ~ Effort + f(Year, model = \"rw1\")\n\n#fit a model\nI2 <- inla(f2, \n           control.compute = list(dic = TRUE),\n           family = \"Gamma\",\n           data = zan)\n#compare two models using a criterion similar to AIC\nround(I1$dic$dic,0) #4179\n\n[1] 4179\n\nround(I2$dic$dic,0) #3532 <- including Effort improves fit\n\n[1] 3532\n\n#And plot the trend \nYearsm <- I2$summary.random$Year\nplot(Yearsm[,1:2], type='l',\n     xlab = 'Year', \n     ylab = 'Random walk trend',\n     ylim = c(-0.2, 0.2) )\nabline(h=0, lty=3)\nlines(Yearsm[, c(1, 4)], lty=2)\nlines(Yearsm[, c(1, 6)], lty=2)\n\n\n\n\nNow the trend is clearly different. This is because we are not including effort in the model, which is important. However, we also need to account for potentially different trends across months. So now we will nest month within a year\n\n#create a formula\nf3 <- Catch ~ Effort + \n  f(Year, \n    model = \"rw1\") +\n  f(Mon, \n    model = \"rw1\", cyclic = TRUE)  \n\n#fit the model\nI3 <- inla(f3, \n           control.predictor = list(compute = TRUE),\n           control.compute = list(dic = TRUE),\n           family = \"gamma\",\n           data = zan)\n\n#compare with the previous model \nround(I2$dic$dic,0) #3525\n\n[1] 3532\n\nround(I3$dic$dic,0) #3203 <- including month improves fit\n\n[1] 3203\n\n#plot the trend, but this time we plot it for years and months\nFit3 <- I3$summary.fitted.values[,\"mean\"]\n\npar(mfrow = c(1,2), mar = c(5,5,2,2), cex.lab = 1.5)\nYearsm   <- I3$summary.random$Year\nplot(Yearsm[,1:2], type='l',\n     xlab = 'Year', \n     ylab = 'Random walk trend',\n     ylim = c(-1, 1) )\nabline(h=0, lty=3)\nlines(Yearsm[, c(1, 4)], lty=2)\nlines(Yearsm[, c(1, 6)], lty=2)\n\nMonsm <- I3$summary.random$Mon\nplot(Monsm[,1:2], type='l',\n     xlab = 'MonthInYear', \n     ylab = '',\n     ylim = c(-4, 4) )\nabline(h=0, lty=3)\nlines(Monsm[, c(1, 4)], lty=2)\nlines(Monsm[, c(1, 6)], lty=2)\n\n\n\n\nWe can see that catches change a lot during the year and are low in summer months. So we definitely need to include month in the model. Since we have several stations, we probably also need to include stations in the model.\n\n# create a formula with station as a random term\nf4 <- Catch ~ Effort + \n  f(Year, \n    model = \"rw1\") +\n  f(Mon, \n    model = \"rw1\", cyclic = TRUE) +\n  f(fStn, model = \"iid\") \n\n#fit the model \nI4 <- inla(f4, \n           control.predictor = list(compute = TRUE),\n           control.compute = list(dic = TRUE),\n           family = \"Gamma\",\n           data = zan)\n\n#compare with the previous model \nround(I3$dic$dic,0) #3203\n\n[1] 3203\n\nround(I4$dic$dic,0) #2977 <- including station improves fit\n\n[1] 2977\n\n#Plot trend across years and months \nFit4 <- I4$summary.fitted.values[,\"mean\"]\n\npar(mfrow = c(1,2), mar = c(5,5,2,2), cex.lab = 1.5)\nYearsm   <- I4$summary.random$Year\nplot(Yearsm[,1:2], type='l',\n     xlab = 'Year', \n     ylab = 'Random walk trend',\n     ylim = c(-1, 1) )\nabline(h=0, lty=3)\nlines(Yearsm[, c(1, 4)], lty=2)\nlines(Yearsm[, c(1, 6)], lty=2)\n\nMonsm   <- I4$summary.random$Mon\nplot(Monsm[,1:2], type='l',\n     xlab = 'MonthInYear', \n     ylab = 'Random walk trend',\n     ylim = c(-3, 3) )\nabline(h=0, lty=3)\nlines(Monsm[, c(1, 4)], lty=2)\nlines(Monsm[, c(1, 6)], lty=2)"
+  },
+  {
+    "objectID": "scripts/BayesianINLA.html#explore-the-best-model",
+    "href": "scripts/BayesianINLA.html#explore-the-best-model",
+    "title": "R code for Bayesian CPUE time series standardisation using INLA",
+    "section": "Explore the best model",
+    "text": "Explore the best model\nNow we look at the Bayesian residuals\n\n\n\n\n\n\n\n\n\n\n\nThese residuals look ok. However, if we fit residuals versus effort we see a strange non linear pattern, which suggests that the model does not fully fit. We will then plot it for each station and find that there seem to be different residual and therefore likely also CPUE trends in different stations.\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\nTo solve this problem we make station a fixed effect and add an interaction with effort to capture non-linearity. If different stations have different catch trends this interaction should be included. So we define a yet another model with Effort * fStn interaction and fit it.\n\n#define the model\nf5 <- Catch ~ Effort * fStn + \n  f(Year, \n    model = \"rw1\") +\n  f(Mon, \n    model = \"rw1\",\n        cyclic = T)\n#fit the model \nI5 <- inla(f5, \n           control.predictor = list(compute = TRUE),\n           control.compute = list(config = TRUE, dic = TRUE),\n           family = \"Gamma\",\n           control.family = list(link = \"log\"),\n           data = zan)\n\n#compare wit the previous model \nround(I4$dic$dic,0) #2977 \n\n[1] 2977\n\nround(I5$dic$dic,0) #2889 <- big improvement in fit...\n\n[1] 2889\n\n#plot trends \nFit5 <- I5$summary.fitted.values[,\"mean\"]\n\npar(mfrow = c(1,2), mar = c(5,5,2,2), cex.lab = 1.5)\nYearsm   <- I5$summary.random$Year\nplot(Yearsm[,1:2], type='l',\n     xlab = 'Year', \n     ylab = 'Random walk trend',\n     ylim = c(-1, 1) )\nabline(h=0, lty=3)\nlines(Yearsm[, c(1, 4)], lty=2)\nlines(Yearsm[, c(1, 6)], lty=2)\n\nMonsm   <- I5$summary.random$Mon\nplot(Monsm[,1:2], type='l',\n     xlab = 'MonthInYear', \n     ylab = 'Random walk trend',\n     ylim = c(-3, 3) )\nabline(h=0, lty=3)\nlines(Monsm[, c(1, 4)], lty=2)\nlines(Monsm[, c(1, 6)], lty=2)\n\n\n\n\nNow we look at the residuals of our new model\n\n# Get the fitted values and Pearson residuals\nN     <- nrow(zan)\nmu2   <- I5$summary.fitted.values[1:N,\"mean\"] \nr     <- I5$summary.hyperpar[\"Precision parameter for the Gamma observations\", \"mean\"]\nVarY2 <- mu2^2 / r\nE2    <- (zan$Catch - mu2) / sqrt(VarY2)\n\n# Plot residuals versus fitted values.\npar(mfrow = c(1, 1))\nplot(x = mu2, \n     y = E2,\n     xlab = \"Fitted values\",\n     ylab = \"Pearson residuals\")\nabline(h = 0, lty = 2, col = 1)\n\n\n\n# Plot residuals versus station\nboxplot(E2 ~ Station, \n        ylab = \"Pearson residuals\",\n        data = zan)\nabline(h = 0, lty = 2)\n\n\n\n# Year\nboxplot(E2 ~ Year, \n        ylab = \"Pearson residuals\",\n        data = zan)\nabline(h = 0, lty = 2)\n\n\n\n# Month\nboxplot(E2 ~ Month, \n        ylab = \"Pearson residuals\",\n        data = zan)\nabline(h = 0, lty = 2)\n\n\n\n# Residuals versus effort\nzan$E2 <- E2\n\nresplot2 <- ggplot() +\n  geom_point(data = zan, alpha = 0.4, size = 2,\n             aes(y = E2 ,  \n                 x = Effort)) +\n  geom_smooth(data = zan,                    \n              aes(y = E2, \n                  x = Effort)) +\n  xlab(\"Effort\") + ylab(\"Pearson residuals\") +\n  theme(text = element_text(size = 12), legend.position=\"none\") +\n  theme(axis.text.x = element_text(size = 11, angle = 45, hjust = 0.9)) +\n  My_theme +\n  geom_hline(yintercept = 0, col = 2)\nresplot2\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\nThe final plot shows that the significant nonlinear pattern in residuals is mostly gone (uncertainty ranges include zero)."
+  },
+  {
+    "objectID": "scripts/BayesianINLA.html#plot-model-outputs",
+    "href": "scripts/BayesianINLA.html#plot-model-outputs",
+    "title": "R code for Bayesian CPUE time series standardisation using INLA",
+    "section": "Plot model outputs",
+    "text": "Plot model outputs\nFirst we plots the overall temporal trend in years and months\n\n# Plot temporal effects\np1 <- bind_rows(\n  I5$summary.random$Year %>%\n    select(Year = 1, mean = 2, lcl = 4, ucl = 6) %>%\n    mutate(Model = \"rw1\")\n) %>%\n  ggplot(aes(x = Year, y = mean, ymin = lcl, ymax = ucl)) +\n  geom_ribbon(alpha = 0.2, fill = \"forestgreen\") +\n  geom_line(colour = \"forestgreen\") + My_theme +\n  geom_hline(yintercept=0, linetype=\"dashed\", \n             color = \"firebrick2\", size=0.4) +\n  ggtitle(\"Year\") +\n  theme(legend.position = \"none\")\nggplotly(p1)\n\n\n\n\np2 <- bind_rows(\n  I5$summary.random$Mon %>%\n    select(Mon = 1, mean = 2, lcl = 4, ucl = 6) %>%\n    mutate(Model = \"rw2\")\n) %>%\n  ggplot(aes(x = Mon, y = mean, ymin = lcl, ymax = ucl)) +\n  geom_ribbon(alpha = 0.2, fill = \"dodgerblue2\") +\n  geom_line(colour = \"dodgerblue2\") + My_theme +\n  geom_hline(yintercept=0, linetype=\"dashed\", \n             color = \"firebrick2\", size=0.4) +\n  ggtitle(\"Month within Year\") +\n  theme(legend.position = \"none\")\nggplotly(p2)"
+  },
+  {
+    "objectID": "scripts/BayesianINLA.html#plot-catch-versus-effort",
+    "href": "scripts/BayesianINLA.html#plot-catch-versus-effort",
+    "title": "R code for Bayesian CPUE time series standardisation using INLA",
+    "section": "Plot catch versus effort",
+    "text": "Plot catch versus effort\nHere we plot the model output where we show catch as a function of effort for each station. Note that these predictions will be shown for one selected year (year 2002 in this case) and month (September), whereas data scatterplot shows the full data."
+  },
+  {
+    "objectID": "scripts/BayesianINLA.html#plot-cpue-through-time",
+    "href": "scripts/BayesianINLA.html#plot-cpue-through-time",
+    "title": "R code for Bayesian CPUE time series standardisation using INLA",
+    "section": "Plot CPUE through time",
+    "text": "Plot CPUE through time\nNow we plot CPUE through time for a selected station (station 1) and selected effort level (20K), for all months"
+  },
+  {
+    "objectID": "scripts/Hilsha.html",
+    "href": "scripts/Hilsha.html",
+    "title": "R code for hilsa (Tenualosa ilisha) CPUE data: zero inflated models",
+    "section": "",
+    "text": "Note that we are using a data file that has already been explored and modified to remove outliers. Read the introduction to the model to see where to find the original data file and explanation on data exploration"
+  },
+  {
+    "objectID": "scripts/Hilsha.html#plot-model-outputs-and-parameters",
+    "href": "scripts/Hilsha.html#plot-model-outputs-and-parameters",
+    "title": "R code for hilsa (Tenualosa ilisha) CPUE data: zero inflated models",
+    "section": "Plot model outputs and parameters",
+    "text": "Plot model outputs and parameters\nWe plot model outputs to show predictions on how catches will depend on the number of days spent fishing and gillnet lengths.\n\n\n\n\n\n\n\n\nWe can also plot how catches depend on the trip length during different months and in different fishing areas."
+  },
+  {
+    "objectID": "scripts/Hilsha.html#plot-model-parameter-estimates-in-a-publication-format",
+    "href": "scripts/Hilsha.html#plot-model-parameter-estimates-in-a-publication-format",
+    "title": "R code for hilsa (Tenualosa ilisha) CPUE data: zero inflated models",
+    "section": "Plot model parameter estimates in a publication format",
+    "text": "Plot model parameter estimates in a publication format\n\n\nRandom effect variances not available. Returned R2 does not account for random effects.\n\n\n\n\n\n \nNB GLM (Hilsha)\n\n\nCoeffcient\nLog-Mean\nConf. Int (95%)\nP-value\n\n\n(Intercept)\n2.49\n2.06 – 2.92\n<0.001\n\n\nArea [LowerMeghna]\n-0.11\n-0.48 – 0.26\n0.556\n\n\nArea [LowerPadma]\n-0.44\n-0.89 – 0.01\n0.056\n\n\nYrMonth [Oct92]\n0.38\n0.10 – 0.66\n0.007\n\n\nYrMonth [Sep92]\n-0.08\n-0.35 – 0.20\n0.596\n\n\nNlength\n0.00\n-0.00 – 0.00\n0.174\n\n\nTripDays\n0.41\n0.33 – 0.49\n<0.001\n\n\nObservations\n266\n\n\nR2 conditional / R2 marginal\nNA / 0.960"
   },
   {
     "objectID": "surplus-production.html",
@@ -28,11 +273,25 @@
     "text": "Blah spm info"
   },
   {
-    "objectID": "temperature.html",
-    "href": "temperature.html",
-    "title": "Temperature model",
+    "objectID": "temperature_growth.html",
+    "href": "temperature_growth.html",
+    "title": "Surplus production models",
     "section": "",
-    "text": "blah temp info."
+    "text": "Blah spm info"
+  },
+  {
+    "objectID": "to_do_list.html",
+    "href": "to_do_list.html",
+    "title": "TO DO list",
+    "section": "",
+    "text": "Why is our webiste https://fishsizeproject.github.io/models/ not updated once I push code updates? I can see them locally, but not online\nComments on the _quarto.yml page.\nFor the models.qmd we need to set the images to identical size. Not sure how to do it.\nIn the Zero_inflated_model.qmd for some reason the Rmd script cannot be found, even though it is there in scripts/ folder"
+  },
+  {
+    "objectID": "to_do_list.html#section",
+    "href": "to_do_list.html#section",
+    "title": "TO DO list",
+    "section": "",
+    "text": "Asta: get chlorophyl A image"
   },
   {
     "objectID": "von-bertalanffy.html",
@@ -40,5 +299,26 @@
     "title": "von Bertalanffy Growth models",
     "section": "",
     "text": "blah von Bert info"
+  },
+  {
+    "objectID": "Zero_inflated_model.html",
+    "href": "Zero_inflated_model.html",
+    "title": "Zero inflated model for CPUE standardisation",
+    "section": "",
+    "text": "Most fisheries datasets (scientific, commercial, recreational) have a lot of zero catches. These are fishing trips were no fish was caught. These zero catches are important but we need to fit appropriate models to accommodate them. Here we are introducing a model for zero inflated data. This model is coded in R language, so you will need R and RStudio to run it. If you need a brief introduction into R, check this introductory page from an online course on size based modelling.\nFor a basic introduction into the model and data, check out these slides. However, if you want to use the model we strongly recommend that you watch at least part 4 of our CPUE standardisation course, where the model and approach were presented in more detail.\nBefore proceeding with CPUE standardisation, first make sure you carefully assess and explore your data. We have prepared two courses and different scripts for data exploration, which you can find on our CPUE standardisation course webpage."
+  },
+  {
+    "objectID": "Zero_inflated_model.html#model-code",
+    "href": "Zero_inflated_model.html#model-code",
+    "title": "Zero inflated model for CPUE standardisation",
+    "section": "Model code",
+    "text": "Model code\nThe main model code is available in this R markdown script and is demonstrated using this dataset. You can download the model and modify the script according to your needs. To look at the model code and outputs without having to run the code, you can click here. After applying the model you should be able to plot predicted catches as a function of fishing time (or other estimate of effort) and month or season, like in the plot below."
+  },
+  {
+    "objectID": "Zero_inflated_model.html#application-of-the-model",
+    "href": "Zero_inflated_model.html#application-of-the-model",
+    "title": "Zero inflated model for CPUE standardisation",
+    "section": "Application of the model",
+    "text": "Application of the model\nTo better understand this model and its applications, we strongly recommend that you go through our CPUE standardisation course material, where we discuss different models and their strengths in greater detail. The course also explains how to simulate new datasets using estimated model parameters to assess the probability of obtaining as many zero entries as you have in your dataset (example output of these simulations is shown in the plot below)."
   }
 ]
