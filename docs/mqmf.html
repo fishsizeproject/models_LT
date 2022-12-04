@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Catarina Silva and Asta Audzijonytė">
 
-<title>Sustainable Inland Fisheries - Machine learning based image collection, annotation and classification of fish species</title>
+<title>Sustainable Inland Fisheries - MQMF</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,8 +20,6 @@ ul.task-list{list-style: none;}
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
-<link href="./ML_fish_size.html" rel="next">
-<link href="./detecting_size.html" rel="prev">
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -65,7 +62,7 @@ ul.task-list{list-style: none;}
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Machine learning based image collection, annotation and classification of fish species</h1>
+      <h1 class="quarto-secondary-nav-title">MQMF</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -168,7 +165,7 @@ ul.task-list{list-style: none;}
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ML_fish_species.html" class="sidebar-item-text sidebar-link active">10. ML for species identification</a>
+  <a href="./ML_fish_species.html" class="sidebar-item-text sidebar-link">10. ML for species identification</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -218,34 +215,20 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#model-code" id="toc-model-code" class="nav-link" data-scroll-target="#model-code">Model code</a></li>
-  <li><a href="#application-of-the-model" id="toc-application-of-the-model" class="nav-link" data-scroll-target="#application-of-the-model">Application of the model</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Machine learning based image collection, annotation and classification of fish species</h1>
+<h1 class="title d-none d-lg-block">MQMF</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Catarina Silva and Asta Audzijonytė </p>
-          </div>
-  </div>
     
     
   </div>
@@ -253,44 +236,12 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Here we present a <strong>scalable user-friendly artificial intelligence (AI) framework to develop fish species identification models</strong>. We have prepared a course and scripts for data pre-processing, image processing and machine learning model development, which you can find on our <a href="https://fishsizeproject.github.io/Course-MLforImageProcessing/">Online course</a> webpage.</p>
-<p>In this <a href="https://www.mdpi.com/2071-1050/14/21/14324"><strong>publication</strong></a> in the journal <em>Sustainability</em> you will find a detailed description of the framework, a pilot case-study where we demonstrate potential use for recreational fisheries research, a summary of the knowledge gained from the case study application and an outline of the main challenges and potential future development. You can also find all the scripts used in the framework in our <a href="https://github.com/fishsizeproject/ML-framework-for-image-processing">Github page</a>.</p>
-<p><img src="images/framework.png" style="width:50.0%;height:50.0%" alt="ML framework"> Open-source modular framework for large scale image storage, handling, annotation and automatic classification</p>
-</section>
-<section id="model-code" class="level2">
-<h2 class="anchored" data-anchor-id="model-code">Model code</h2>
-<p>To use our models it is very important that fish species (or ecotypes or any other classes you want your model to identify) in your dataset are identified correctly, otherwise your model will not be very useful (you might have heard the expression “garbage in - garbage out”). You can upload images (in JPEG or PNG format) to your Google drive by species (i.e.&nbsp;one species per folder - please make sure these are correctly identified), following this directory structure:</p>
-<pre><b>dataset</b>
-|__ <b>perch</b>
-    |______ 100080576_f52e8ee070_n.PNG
-    |______ 14167534527_781ceb1b7a_n.PNG
-    |______ ...
-|__ <b>striped_bass</b>
-    |______ 10043234166_e6dd915111_n.PNG
-    |______ 1426682852_e62169221f_m.PNG
-    |______ ...
-|__ <b>trout</b>
-    |______ 102501987_3cdb8e5394_n.PNG
-    |______ 14982802401_a3dfb22afb.PNG
-    |______ ...
-|__ ...
-</pre>
-<p>To apply our model you can use this code:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://colab.research.google.com/drive/1YgIrWWiaex8ObtAbAJOAXlRRGUbElkYj?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Open In Colab</figcaption><p></p>
-</figure>
-</div>
-</section>
-<section id="application-of-the-model" class="level2">
-<h2 class="anchored" data-anchor-id="application-of-the-model">Application of the model</h2>
-<p>You can also watch <a href="https://youtu.be/mHw8-tUgCkI?t=1886"><strong>this talk</strong></a> for the “Online workshop: Machine learning, fishing and citizen science” and <a href="https://youtu.be/iujl9R3lEaQ?t=5293"><strong>this talk</strong></a> for the “Online seminar: Recreational angling effort and engagement in the digital age” to learn more about this model.</p>
+<p>About the model</p>
+<p>A link to the <a href="https://www.github.com">code</a></p>
+<p>A link for <a href="https://www.google.com">more info</a></p>
+<p>A link to the <a href="https://fishsize.shinyapps.io/pikeperch/">model</a></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -390,18 +341,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./detecting_size.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">9. Detecting size changes</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./ML_fish_size.html" class="pagination-link">
-        <span class="nav-page-text">11. ML for fish size estimation</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

@@ -4,13 +4,13 @@ project:
 
 website:
   title: "Sustainable Inland Fisheries" # left of coloured top naviation bar
-  favicon: images/sif.png  #ASTA: it would be good to have this image on the top bar, in the left corner, but not sure how to add it
   page-navigation: true
+  search: false # you can toggle this to true/false for the search bar (personally i dont mind it to search within the website/pages) - Freddie
   navbar: 
+    logo: images/sif_sm.png  # logo displayed at the top left of the webpage
     background: "white" # colour of the top navigation bar (can use hex)
   sidebar:
     style: "docked"
-    search: false  #ASTA: tried to remove the search bar option, as it is not really doing anything, but it's still there
     contents:
 #      - href: index.qmd
 #        text: "Home" 

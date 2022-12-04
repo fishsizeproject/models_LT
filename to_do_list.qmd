@@ -5,12 +5,18 @@ editor: source
 
 0. Why is our webiste https://fishsizeproject.github.io/models/ not updated once I push code updates? I can see them locally, but not online
 
+- This is because github pages will only modify files (e.g. .png or .html) that have been modified
+- you need to make a change to the index.qmd, render the entire website (which creates a new index.html) and then the github.io pages will auto update (after about 1 minute for various checks from github)
+
 1. Comments on the _quarto.yml page. 
 
 2. For the models.qmd we need to set the images to identical size. Not sure how to do it. 
 
+- i did this by creating a vertical format of images
+
 3. In the Zero_inflated_model.qmd for some reason the Rmd script cannot be found, even though it is there in scripts/ folder
 
+- not sure what you mean by this, all the 
 
 ##
 

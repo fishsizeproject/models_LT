@@ -67,7 +67,7 @@
     "href": "index.html",
     "title": "Models for sustainable inland fisheries",
     "section": "",
-    "text": "This page and models presented here have been created by Asta Audzijonyte, Carl Smith, Catarina Silva, Egle Jakubavičiūtė, Dalia Grendaitė, Max Lindmark, Freddie Heather, Steve Midway and Gustav Delius.\nIf you have questions and suggestions please contact us at lydekaipaliepus@gamtc.lt\nStart exploring models\nGo back to the project website."
+    "text": "This page and models presented here have been created by Asta Audzijonyte, Carl Smith, Catarina Silva, Egle Jakubavičiūtė, Dalia Grendaitė, Max Lindmark, Freddie Heather, Steve Midway and Gustav Delius.\nIf you have questions and suggestions please contact us at lydekaipaliepus@gamtc.lt.\nStart exploring models\nGo back to the project website."
   },
   {
     "objectID": "jabba_models.html",
@@ -182,6 +182,13 @@
     "text": "Size based ecosystem models\nSize based community and ecosystem models represent a powerful tool to explore potential outcomes of different fisheries management strategies, species interactions, climate change and a lot more. In this project we are developing a size based model for the Curonian lagoon ecosystem.\n\n\n\n\n\n\n14. Sized based models for Curonian lagoon and Baltic Sea  Learn about the potential climate change impacts in the Baltic Sea, explore a basic Curonian lagoon model and understand key principles of size based modelling, as implemented in a R package mizer."
   },
   {
+    "objectID": "mqmf.html",
+    "href": "mqmf.html",
+    "title": "MQMF",
+    "section": "",
+    "text": "A link to the code\nA link for more info\nA link to the model"
+  },
+  {
     "objectID": "satelite_chla.html",
     "href": "satelite_chla.html",
     "title": "MQMF",
@@ -270,7 +277,7 @@
     "href": "surplus-production.html",
     "title": "Surplus production models",
     "section": "",
-    "text": "Blah spm info"
+    "text": "Here is a link to the shiny app"
   },
   {
     "objectID": "temperature_growth.html",
@@ -284,7 +291,7 @@
     "href": "to_do_list.html",
     "title": "TO DO list",
     "section": "",
-    "text": "Why is our webiste https://fishsizeproject.github.io/models/ not updated once I push code updates? I can see them locally, but not online\nComments on the _quarto.yml page.\nFor the models.qmd we need to set the images to identical size. Not sure how to do it.\nIn the Zero_inflated_model.qmd for some reason the Rmd script cannot be found, even though it is there in scripts/ folder"
+    "text": "Why is our webiste https://fishsizeproject.github.io/models/ not updated once I push code updates? I can see them locally, but not online"
   },
   {
     "objectID": "to_do_list.html#section",
@@ -298,7 +305,7 @@
     "href": "von-bertalanffy.html",
     "title": "von Bertalanffy Growth models",
     "section": "",
-    "text": "blah von Bert info"
+    "text": "Here is a link to the shiny app"
   },
   {
     "objectID": "Zero_inflated_model.html",
