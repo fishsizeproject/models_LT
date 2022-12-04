@@ -21,6 +21,6 @@ Go [**back**](https://en.sif.lt) to the project website.
 
 <!-- Logos -->
 ::: {.g-col-12}
-![](images/logos_en.png){fig-align="center" width="75%"} 
+![](images/logos_en.PNG){fig-align="center" width="75%"} 
 :::
 :::
