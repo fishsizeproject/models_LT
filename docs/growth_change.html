@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Max Lindmark and Asta Audzijonyte">
 
-<title>Sustainable Inland Fisheries - MQMF</title>
+<title>Sustainable Inland Fisheries - Detecting changes in fish growth through time</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +65,7 @@ ul.task-list{list-style: none;}
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">MQMF</h1>
+      <h1 class="quarto-secondary-nav-title">Detecting changes in fish growth through time</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -142,7 +143,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./temperature_growth.html" class="sidebar-item-text sidebar-link">7. Temperatue impacts on growth</a>
+  <a href="./temperature_growth.html" class="sidebar-item-text sidebar-link">7. Temperature impacts on growth</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -217,20 +218,34 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#model-code" id="toc-model-code" class="nav-link" data-scroll-target="#model-code">Model code</a></li>
+  <li><a href="#application-of-the-model" id="toc-application-of-the-model" class="nav-link" data-scroll-target="#application-of-the-model">Application of the model</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">MQMF</h1>
+<h1 class="title d-none d-lg-block">Detecting changes in fish growth through time</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Max Lindmark and Asta Audzijonyte </p>
+          </div>
+  </div>
     
     
   </div>
@@ -238,12 +253,38 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>About the model</p>
-<p>A link to the <a href="https://www.github.com">code</a></p>
-<p>A link for <a href="https://www.google.com">more info</a></p>
-<p>A link to the <a href="https://fishsize.shinyapps.io/pikeperch/">model</a></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Although temperature can have large impacts on fish growth, it can be hard to detect it in size and age data, due to inherent noise and variability in growth. To separate temperature signals from other growth variation we need model that will estimate temperature impacts on fish size at age. Here we develop such model and apply it to the long term fish growth observation dataset in Drūkšiai Lake in Lithuania. Drūkšiai lake presents a unique system because during 1994-2010 the lake served as nuclear power plant cooling lake and was heated by nearly 2C. Since 2010 the power plant has been closed and the lake temperature returned to natural levels. Nature Research Centre has been conducting long term monitoring of fish growth has been conducted in Drūkšiai Lake, and now we can use these datasets to estimate how temperature changes affected growth in five fish species.</p>
+<div class="grid">
+<div class="g-col-6" style="justify-items: center; align-content: center;">
+<p><img src="images/IgnalinaAE.jpg" style="width:100.0%" height="300"></p>
+</div>
+<div class="g-col-6" style="justify-items: center; align-content: center;">
+<p><img src="images/DruksiaiTemp.png" style="width:100.0%" height="300"></p>
+</div>
+</div>
+</section>
+<section id="model-code" class="level2">
+<h2 class="anchored" data-anchor-id="model-code">Model code</h2>
+<p>The model is in <a href="https://www.r-project.org/">R</a> environment and is applies Bayesian mixed models of length as a function of age, age squared, lifetime average temperature and the interaction between lifetime average temperature and age. The model code and output can be found <a href="resources/Fit_temp_models.html"><strong>here</strong></a>. The model estimates the intercept and slope of temperature effect on size at age. In this way we assess whether all ages growth faster or slower (sign and magnitude of the intercept) and whether temperature impacts are different for young versus older ages (sign and magnitude of the slope). You can see model predictions in the figure below.</p>
+<p><img src="images/GrowthModelPredictions.png" style="width:100.0%" height="500"></p>
+</section>
+<section id="application-of-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="application-of-the-model">Application of the model</h2>
+<p>This model and its results have been presented at the ICES annual conference as an in September 2022 - see video <a href="https://youtu.be/z7I1vElIv4U"><strong>here</strong></a>.</p>
+<p>It also was presented at the 151st American Fisheries Society Annual Meeting in November 2021 - see video <a href="https://youtu.be/GvT-kOuJPAU"><strong>here</strong></a></p>
+<p>If you would like to suggest or implement new model modifications and publish them, please contact us at <em>lydekaipaliepus@gamtc.lt</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/perch.png" style="width:60.0%" height="280" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Perch drawing by Amy Rose Coghlan</figcaption><p></p>
+</figure>
+</div>
+<!-- comments can go here -->
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -346,7 +387,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./temperature_growth.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">7. Temperatue impacts on growth</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">7. Temperature impacts on growth</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

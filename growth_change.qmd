@@ -8,9 +8,18 @@ editor: source
 
 Although temperature can have large impacts on fish growth, it can be hard to detect it in size and age data, due to inherent noise and variability in growth. To separate temperature signals from other growth variation we need model that will estimate temperature impacts on fish size at age. Here we develop such model and apply it to the long term fish growth observation dataset in Drūkšiai Lake in Lithuania. Drūkšiai lake presents a unique system because during 1994-2010 the lake served as nuclear power plant cooling lake and was heated by nearly 2C. Since 2010 the power plant has been closed and the lake temperature returned to natural levels. Nature Research Centre has been conducting long term monitoring of fish growth has been conducted in Drūkšiai Lake, and now we can use these datasets to estimate how temperature changes affected growth in five fish species. 
 
-![](images/IgnalinaAE.jpg){width="60%" height="300"}
+::: {.grid}
 
-![](images/DruksiaiTemp.png){width="60%" height="300"}
+::: {.g-col-6 style="justify-items: center; align-content: center;"}
+![](images/IgnalinaAE.jpg){width="100%" height="300"}
+:::
+
+::: {.g-col-6 style="justify-items: center; align-content: center;"}
+![](images/DruksiaiTemp.png){width="100%" height="300"}
+:::
+
+:::
+
 
 ## Model code
 
@@ -27,8 +36,6 @@ It also was presented at the 151st American Fisheries Society Annual Meeting in 
 
 If you would like to suggest or implement new model modifications and publish them, please contact us at *lydekaipaliepus@gamtc.lt*
 
-![](images/perch.png){width="60%" height="280"}
-
-Perch drawing by Amy Rose Coghlan 
+![Perch drawing by Amy Rose Coghlan](images/perch.png){width="60%" height="280"}
 
 <!-- comments can go here -->

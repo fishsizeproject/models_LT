@@ -58,9 +58,23 @@
   {
     "objectID": "growth_change.html",
     "href": "growth_change.html",
-    "title": "MQMF",
+    "title": "Detecting changes in fish growth through time",
     "section": "",
-    "text": "A link to the code\nA link for more info\nA link to the model"
+    "text": "Although temperature can have large impacts on fish growth, it can be hard to detect it in size and age data, due to inherent noise and variability in growth. To separate temperature signals from other growth variation we need model that will estimate temperature impacts on fish size at age. Here we develop such model and apply it to the long term fish growth observation dataset in Drūkšiai Lake in Lithuania. Drūkšiai lake presents a unique system because during 1994-2010 the lake served as nuclear power plant cooling lake and was heated by nearly 2C. Since 2010 the power plant has been closed and the lake temperature returned to natural levels. Nature Research Centre has been conducting long term monitoring of fish growth has been conducted in Drūkšiai Lake, and now we can use these datasets to estimate how temperature changes affected growth in five fish species."
+  },
+  {
+    "objectID": "growth_change.html#model-code",
+    "href": "growth_change.html#model-code",
+    "title": "Detecting changes in fish growth through time",
+    "section": "Model code",
+    "text": "Model code\nThe model is in R environment and is applies Bayesian mixed models of length as a function of age, age squared, lifetime average temperature and the interaction between lifetime average temperature and age. The model code and output can be found here. The model estimates the intercept and slope of temperature effect on size at age. In this way we assess whether all ages growth faster or slower (sign and magnitude of the intercept) and whether temperature impacts are different for young versus older ages (sign and magnitude of the slope). You can see model predictions in the figure below."
+  },
+  {
+    "objectID": "growth_change.html#application-of-the-model",
+    "href": "growth_change.html#application-of-the-model",
+    "title": "Detecting changes in fish growth through time",
+    "section": "Application of the model",
+    "text": "Application of the model\nThis model and its results have been presented at the ICES annual conference as an in September 2022 - see video here.\nIt also was presented at the 151st American Fisheries Society Annual Meeting in November 2021 - see video here\nIf you would like to suggest or implement new model modifications and publish them, please contact us at lydekaipaliepus@gamtc.lt\n\n\n\nPerch drawing by Amy Rose Coghlan"
   },
   {
     "objectID": "index.html",
@@ -282,9 +296,23 @@
   {
     "objectID": "temperature_growth.html",
     "href": "temperature_growth.html",
-    "title": "Surplus production models",
+    "title": "Model to explore temperature impacts on fish growth",
     "section": "",
-    "text": "Blah spm info"
+    "text": "Fish growth is strongly dependent on temperature. In warmer conditions fish often growth faster as juveniles, mature at smaller sizes and are smaller as adults. This is known as the temperature size rule, as defined by David Atkinson in 1994.\n\n\n\n\n\nHowever, the mechanisms behind this growth remain unclear. In this model we propose that temperature size rule (TSR) emerges in response to both physiological changes (faster metabolism and intake) and growth and reproduction optimisation to changes in mortality. We develop a physiologically structured life history optimisation model and explore a range of parameters and scenarios under which TSR is likely to emerge. For a brief introduction into the model you can watch these slides or watch this conference talk."
+  },
+  {
+    "objectID": "temperature_growth.html#model-code",
+    "href": "temperature_growth.html#model-code",
+    "title": "Model to explore temperature impacts on fish growth",
+    "section": "Model code",
+    "text": "Model code\nThe model is written in Microsoft Excel and R environment. All model code and details are available on this GitHub repository. The main model Excel file can also be downloaded here. In this Excel file you can modify temperature response parameters and their size dependency, optimise the model using Solver option built in Excel and see the resulting growth and reproduction curves, as shown in the figure below."
+  },
+  {
+    "objectID": "temperature_growth.html#application-of-the-model",
+    "href": "temperature_growth.html#application-of-the-model",
+    "title": "Model to explore temperature impacts on fish growth",
+    "section": "Application of the model",
+    "text": "Application of the model\nThe open access publication presenting this model is published in a special issue of The Biological Bulletin. If you want to learn more about the role of temperature and oxygen on fish growth, please also check out this overview publication in the same special issue.\nThis model is easy to modify and explore, and you are welcome to use it in your research and teaching. If you would like to suggest or implement new model modifications and publish them, please contact us at lydekaipaliepus@gamtc.lt\n\n\n\nVendace drawing by Amy Rose Coghlan"
   },
   {
     "objectID": "to_do_list.html",
