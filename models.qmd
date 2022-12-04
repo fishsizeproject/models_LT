@@ -36,7 +36,7 @@ If catch data has a lot of zero values, one can also GLMs with adjustments for z
 
 <!-- BAYESIAN MODELS -->
 ::: {.g-col-4 style="justify-items: center;"}
-![](images/inla_cpue.PNG)
+![](images/cpue_inla.png)
 :::
 
 ::: {.g-col-8}

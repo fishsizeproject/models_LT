@@ -20,10 +20,10 @@ The main model code is available in this [**R markdown script**](scripts/Bayesia
 
 To look at the model code and outputs without having to run the code, you can click [**here**](resources/BayesianINLA.html). After applying the model you should be able to plot predicted CPUE and its uncertainty through time, like in the plot below. 
 
-![](images/inlaCPUE.PNG){width="60%" height="400"}
+![](images/cpue_inla.png){width="60%" height="400"}
 
 ## Application of the model 
 
 We are currently working on applying this model to CPUE standardisation of the [long term data set](https://www.sciencedirect.com/science/article/pii/S2352340922002013) from the Curonian Lagoon and Kaunas Water Reservoir in Lithuania. Stay tuned for more outputs. If you are interested to learn more, please contact us as *lydekaipaliepus@gamtc.lt*
 
-![](images/EffortCatchINLA.PNG){width="60%" height="400"}
+![](images/EffortCatchINLA.png){width="60%" height="400"}
