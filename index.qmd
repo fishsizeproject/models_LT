@@ -8,7 +8,7 @@ This is a webpage of models developed during the project "*Advanced models, citi
 
 This page and models presented here have been created by Asta Audzijonyte, Carl Smith, Catarina Silva, Egle Jakubavičiūtė, Dalia Grendaitė, Max Lindmark, Freddie Heather, Steve Midway and Gustav Delius.  
 
-If you have questions and suggestions please contact us at *lydekaipaliepus@gamtc.lt*
+If you have questions and suggestions please contact us at *lydekaipaliepus@gamtc.lt*.
 
 [**Start exploring models**](models.qmd)
 

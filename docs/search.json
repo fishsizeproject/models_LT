@@ -67,7 +67,7 @@
     "href": "index.html",
     "title": "Models for sustainable inland fisheries",
     "section": "",
-    "text": "This page and models presented here have been created by Asta Audzijonyte, Carl Smith, Catarina Silva, Egle Jakubavičiūtė, Dalia Grendaitė, Max Lindmark, Freddie Heather, Steve Midway and Gustav Delius.\nIf you have questions and suggestions please contact us at lydekaipaliepus@gamtc.lt\nStart exploring models\nGo back to the project website."
+    "text": "This page and models presented here have been created by Asta Audzijonyte, Carl Smith, Catarina Silva, Egle Jakubavičiūtė, Dalia Grendaitė, Max Lindmark, Freddie Heather, Steve Midway and Gustav Delius.\nIf you have questions and suggestions please contact us at lydekaipaliepus@gamtc.lt.\nStart exploring models\nGo back to the project website."
   },
   {
     "objectID": "jabba_models.html",
@@ -144,7 +144,7 @@
     "href": "models.html#models-for-catch-per-unit-effort-cpue-standardisation",
     "title": "Overview of models",
     "section": "Models for catch per unit effort (CPUE) standardisation",
-    "text": "Models for catch per unit effort (CPUE) standardisation\nScientific monitoring and artisanal, commercial or recreational fish catch data is often used to assess population status and trends, but such data are usually complex and require careful standardisation. There are several approaches that can be used for CPUE standardisation and we present three potential models of increasing complexity.\n\n\n\n\n\n\n1. Generalized linear model (GLM) based standardisation  This model could be used for scientific monitoring or commercial catch data and applies GLM with Tweedie distribution to extract annual CPUE residuals. Here we apply the model for five common Lithuanian freshwater species.\n\n\n\n\n\n\n2. Zero inflated models for CPUE standardisation  If catch data has a lot of zeros, one can also GLMs with adjustments for zero inflation.\n\n\n\n\n\n\n3. Bayesian model with INLA  This is a Bayesian model that account for autocorrelation in catches across time and space. It uses approximate Bayesian inference implemented in the INLA package."
+    "text": "Models for catch per unit effort (CPUE) standardisation\nScientific monitoring and artisanal, commercial or recreational fish catch data is often used to assess population status and trends, but such data are usually complex and require careful standardisation. There are several approaches that can be used for CPUE standardisation and we present three potential models of increasing complexity.\n\n\n\n\n\n\n1. Generalized linear model (GLM) based standardisation  This model could be used for scientific monitoring or commercial catch data and applies GLM with Tweedie distribution to extract annual CPUE residuals. Here we apply the model for five common Lithuanian freshwater species.\n\n\n\n\n\n\n2. Zero inflated models for CPUE standardisation  If catch data has a lot of zero values, one can also GLMs with adjustments for zero inflation.\n\n\n\n\n\n\n3. Bayesian model with INLA  This is a Bayesian model that account for autocorrelation in catches across time and space. It uses approximate Bayesian inference implemented in the INLA package."
   },
   {
     "objectID": "models.html#surplus-production-models-for-stock-assessments",

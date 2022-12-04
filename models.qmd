@@ -31,7 +31,7 @@ This model could be used for scientific monitoring or commercial catch data and 
 ::: {.g-col-8}
 [2. Zero inflated models for CPUE standardisation](Zero_inflated_model.qmd) 
 <br> 
-If catch data has a lot of zeros, one can also GLMs with adjustments for zero inflation.
+If catch data has a lot of zero values, one can also GLMs with adjustments for zero inflation.
 :::
 
 <!-- BAYESIAN MODELS -->
