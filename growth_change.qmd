@@ -1,12 +1,34 @@
 ---
-title: "MQMF"
+title: "Detecting changes in fish growth through time"
+author: Max Lindmark and Asta Audzijonyte
 editor: source
 ---
 
-About the model
+## Introduction
 
-A link to the [code](https://www.github.com)
+Although temperature can have large impacts on fish growth, it can be hard to detect it in size and age data, due to inherent noise and variability in growth. To separate temperature signals from other growth variation we need model that will estimate temperature impacts on fish size at age. Here we develop such model and apply it to the long term fish growth observation dataset in Drūkšiai Lake in Lithuania. Drūkšiai lake presents a unique system because during 1994-2010 the lake served as nuclear power plant cooling lake and was heated by nearly 2C. Since 2010 the power plant has been closed and the lake temperature returned to natural levels. Nature Research Centre has been conducting long term monitoring of fish growth has been conducted in Drūkšiai Lake, and now we can use these datasets to estimate how temperature changes affected growth in five fish species. 
 
-A link for [more info](https://www.google.com)
+![](images/IgnalinaAE.jpg){width="60%" height="300"}
 
-A link to the [model](https://fishsize.shinyapps.io/pikeperch/)
+![](images/DruksiaiTemp.png){width="60%" height="300"}
+
+## Model code
+
+The model is in [R](https://www.r-project.org/) environment and is applies Bayesian mixed models of length as a function of age, age squared, lifetime average temperature and the interaction between lifetime average temperature and age. The model code and output can be found [**here**](resources/Fit_temp_models.html). The model estimates the intercept and slope of temperature effect on size at age. In this way we assess whether all ages growth faster or slower (sign and magnitude of the intercept) and whether temperature impacts are different for young versus older ages (sign and magnitude of the slope). You can see model predictions in the figure below. 
+
+![](images/GrowthModelPredictions.png){width="100%" height="500"}
+
+## Application of the model 
+
+This model and its results have been presented at the ICES annual conference as an in September 2022 - see video [**here**](https://youtu.be/z7I1vElIv4U). 
+
+It also was presented at the 151st American Fisheries Society Annual Meeting in November 2021 - see video [**here**](https://youtu.be/GvT-kOuJPAU)
+
+
+If you would like to suggest or implement new model modifications and publish them, please contact us at *lydekaipaliepus@gamtc.lt*
+
+![](images/perch.png){width="60%" height="280"}
+
+Perch drawing by Amy Rose Coghlan 
+
+<!-- comments can go here -->
