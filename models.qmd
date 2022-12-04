@@ -36,7 +36,7 @@ If catch data has a lot of zero values, one can also GLMs with adjustments for z
 
 <!-- BAYESIAN MODELS -->
 ::: {.g-col-4 style="justify-items: center;"}
-![](images/inlaCPUE.png)
+![](images/inla_cpue.png)
 :::
 
 ::: {.g-col-8}
@@ -160,7 +160,7 @@ Here you can learn about our pipeline for machine learning based image classific
 
 <!-- ML size estimation -->
 ::: {.g-col-4}
-![](images/MLsize.png){fig-align="center" width="100%"} 
+![](images/ml_size.png){fig-align="center" width="100%"} 
 :::
 
 ::: {.g-col-8}
