@@ -26,4 +26,6 @@ This model is easy to modify and explore, and you are welcome to use it in your 
 
 ![](images/vendace.png){width="70%" height="200"}
 
+Vendace drawing by Amy Rose Coghlan
+
 <!-- comments can go here -->
